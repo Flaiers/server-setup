@@ -1,1 +1,1 @@
-customization-debian-ubuntu
+# Customization for debian or ubuntu server. Priority for Debian 10.+ and Ubuntu 20.+
