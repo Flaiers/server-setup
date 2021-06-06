@@ -1,6 +1,10 @@
-# Customization for debian or ubuntu server. Priority versions for Debian 10.+ and Ubuntu 20.+
+Customization for debian or ubuntu server. Priority versions for Debian 10.+ and Ubuntu 20.+
+============================================================================================
 
-## Customization the Network
+1. #### [Network](#customization-the-network)
+
+Customization the Network
+-------------------------
 
 #### First, let's find out the parameters and network device on our server
 
@@ -14,7 +18,7 @@ sudo lshw -class network
 
 > Из ответа нужен параметр `*-network` следующий параметр `logical name` запишите или запомните его
 
-&nbsp;
+***
 
 #### Let's start customization, open the file for editing
 
