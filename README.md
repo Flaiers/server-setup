@@ -2,7 +2,12 @@ Customization for debian or ubuntu server. Priority versions for Debian 10.+ and
 ============================================================================================
 
 1. #### [Network](#customization-the-network)
+    * [Network device](#first-lets-find-out-the-parameters-and-network-device-on-our-server)
+    * [Edit parameters](#lets-start-customization-open-the-file-for-editing)
+
 2. #### [Dependencies](#installing-dependencies)
+    * [Apt update upgrade](#first-lets-update-the-apt-packages-and-then-the-system)
+    * [Install packages](#lets-download-the-main-packages-for-python-development-and-for-further-configuration)
 
 Customization the Network
 -------------------------
