@@ -7,7 +7,7 @@ Customization for debian or ubuntu server. Priority versions for Debian 10.+ and
 
 2. #### [Dependencies](#installing-dependencies)
     * [Apt update upgrade](#first-lets-update-the-apt-packages-and-then-the-system)
-    * [Install packages](#lets-download-the-main-packages-for-python-development-and-for-further-configuration)
+    * [Install packages](#lets-download-the-main-packages-for-python-development-and-for-further-customization)
 
 Customization the Network
 -------------------------
@@ -78,7 +78,7 @@ sudo apt upgrade
 
 ***
 
-#### Let's download the main packages for python development and for further configuration
+#### Let's download the main packages for python development and for further customization
 
 > Скачиваем основные пакеты для разработки на python и для дальнейшей настройки
 
