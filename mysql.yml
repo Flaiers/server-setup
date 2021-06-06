@@ -1,0 +1,17 @@
+version: '3.1'
+
+services:
+  mysql:
+    container_name: <mysql-name>
+    image: mysql
+    restart: always
+    ports:
+      - 3306:3306
+    volumes:
+      - /usr/projects/mysql/<mysql-name>:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: <mysql-root-pass>
+      MYSQL_USER: <mysql-user>
+      MYSQL_PASS: <mysql-pass>
+      MYSQL_DATABASE: <mysql-db>
