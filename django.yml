@@ -1,0 +1,16 @@
+version: '3.1'
+
+services:
+  web:
+    build: .
+    container_name: <project-name>
+    image: <image-name>
+    command: bash -c "python manage.py collectstatic --noinput && gunicorn --bind 0.0.0.0:8000 uni_cms.wsgi --reload"
+    restart: always
+    ports:
+      - "8000:8000"
+    volumes:
+      - ".:/<project-name>"
+      - "/usr/web/<project-name>/static:/usr/web/static"
+    environment:
+      <your-environment>
