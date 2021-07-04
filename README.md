@@ -7,7 +7,7 @@ Customization for debian or ubuntu server. Priority versions for Debian 10.+ and
 
 2. #### [Dependencies](#installing-dependencies)
     * [Apt update upgrade](#first-lets-update-the-apt-packages-and-then-the-system)
-    * [Install packages](#lets-download-the-main-packages-for-python-development-and-for-further-configuration)
+    * [Install packages](#lets-download-the-main-packages-for-python-development-and-for-further-customization)
 
 Customization the Network
 -------------------------
@@ -78,10 +78,10 @@ sudo apt upgrade
 
 ***
 
-#### Let's download the main packages for python development and for further configuration
+#### Let's download the main packages for python development and for further customization
 
 > Скачиваем основные пакеты для разработки на python и для дальнейшей настройки
 
 ```bash
-sudo apt install -y openssh-server vim zsh mosh nginx htop git curl wget unzip zip make python3-dev python3-lxml supervisor python3 build-essential libssl-dev libffi-dev python3-pip python3-venv
+sudo apt install -y openssh-server vim zsh mosh nginx htop git curl wget unzip zip make python3-dev python3-lxml supervisor python3 build-essential libssl-dev libffi-dev python3-pip python3-venv tk-dev libncurses5-dev libncursesw5-dev libreadline6-dev libdb5.3-dev libgdbm-dev libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev
 ```
