@@ -16,6 +16,8 @@ pip install -r requirements.txt
 
 `django-admin startproject $project_name`
 
+`cd $project_name`
+
 `python manage.py startapp $app_name`
 
 python manage.py runserver
