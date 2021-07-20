@@ -20,4 +20,5 @@ pip install -r requirements.txt
 
 `python manage.py startapp $app_name`
 
+python manage.py migrate
 python manage.py runserver
