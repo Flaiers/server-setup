@@ -73,7 +73,7 @@ sudo apt update
 ```
 
 ```bash
-sudo apt upgrade
+sudo apt upgrade -y
 ```
 
 ***
