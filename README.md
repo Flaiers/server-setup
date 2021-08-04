@@ -18,6 +18,7 @@ Customization for debian or ubuntu server. Priority versions for Debian 10.+ and
     * [Check functionality](#checking-functionality-of-the-utility)
     * [Generate rsa keys](#generate-and-upload-a-pair-of-rsa-keys-to-server)
     * [Customization ssh](#customization-ssh-config)
+    * [Save and restart](#save-and-restart-ssh)
 
 
 Customization the Network
@@ -201,4 +202,35 @@ Let's start editing
 
 ```bash
 sudo nano /etc/ssh/sshd_config
+```
+
+Check the most important parameters in config
+
+> Проверьте наиболее важные параметры  в конфиге
+
+```bash
+Port 2222
+LoginGraceTime 2m
+AllowUsers <username>, <username>
+PermitRootLogin no
+PubkeyAuthentication yes
+ClientAliveInterval 600
+ClientAliveCountMax 0
+PasswordAuthentication no
+PermitEmptyPasswords no
+ChallengeResponseAuthentication no
+```
+
+> In the parameter AllowUsers, specify a user or several users to which it is allowed to connect
+
+> В параметре AllowUsers укажите пользователя или несколько пользователей к которым разрешено подключаться
+
+***
+
+#### Save and restart ssh
+
+> Сохраняем и перезагружаем ssh
+
+```bash
+systemctl restart ssh
 ```
