@@ -10,12 +10,12 @@ Customization for debian or ubuntu server. Priority versions for Debian 10.+ and
     * [Install packages](#lets-download-the-main-packages-for-python-development-and-for-further-customization)
     * [Use oh-my-zsh](#install-and-use-oh-my-zsh)
 
-3. #### [SSH](#working-and-use-ssh)
+3. #### [Users](#working-with-users)
+    * [Create user](#create-a-user-with-different-rights)
+
+4. #### [SSH](#working-and-use-ssh)
     * [Add to startup](#add-openssh-server-to-startup)
     * [Check functionality](#checking-functionality-of-the-utility)
-
-4. #### [Users](#working-with-users)
-    * [Create user](#create-a-user-with-different-rights)
 
 
 Customization the Network
@@ -113,27 +113,6 @@ zsh
 
 &nbsp;
 
-Working and use SSH
--------------------
-
-#### Add openssh-server to startup 
-
-> Добавим openssh-server в автозагрузку
-
-```bash
-sudo systemctl enable ssh
-```
-
-#### Checking functionality of the utility
-
-> Проверяем работоспособность утилиты
-
-```bash
-ssh localhost
-```
-
-&nbsp;
-
 Working with users
 ------------------
 
@@ -154,4 +133,25 @@ sudo useradd -m -o -u 0 -g 0 -s /bin/bash -p <password> <username>
 To see the settings of the rights of groups and users
 ```bash
 sudo nano /etc/sudoers
+```
+
+&nbsp;
+
+Working and use SSH
+-------------------
+
+#### Add openssh-server to startup 
+
+> Добавим openssh-server в автозагрузку
+
+```bash
+sudo systemctl enable ssh
+```
+
+#### Checking functionality of the utility
+
+> Проверяем работоспособность утилиты
+
+```bash
+ssh localhost
 ```
