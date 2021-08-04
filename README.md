@@ -11,11 +11,12 @@ Customization for debian or ubuntu server. Priority versions for Debian 10.+ and
     * [Use oh-my-zsh](#install-and-use-oh-my-zsh)
 
 3. #### [Users](#working-with-users)
-    * [Create user](#create-a-user-with-different-rights)
+    * [Create users](#create-users-with-different-rights)
 
 4. #### [SSH](#working-and-use-ssh)
     * [Add to startup](#add-openssh-server-to-startup)
     * [Check functionality](#checking-functionality-of-the-utility)
+    * [Customization ssh](#customization-ssh-config)
 
 
 Customization the Network
@@ -101,12 +102,10 @@ sudo apt install -y openssh-server vim zsh mosh nginx htop git curl wget unzip z
 
 > Установка и использование конфига oh-my-zsh
 
-Сommand for installing config
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
-Сommand for run oh-my-zsh
 ```bash
 zsh
 ```
@@ -116,21 +115,30 @@ zsh
 Working with users
 ------------------
 
-#### Create a user with different rights
+#### Create users with different rights
 
-> Создание пользователя с разными правами
+> Создание пользователей с разными правами
 
-Сommand for standard user without rights
+Create standard user without rights
+
+> Создание обычного пользователя без прав
+
 ```bash
 sudo useradd -m -G sudo,wheel -s /bin/bash -p <password> <username>
 ```
 
-Command for user with group and rights root
+Create user with group and rights root
+
+> Создание пользователя с группой и правами root
+
 ```bash
 sudo useradd -m -o -u 0 -g 0 -s /bin/bash -p <password> <username>
 ```
 
 To see the settings of the rights of groups and users
+
+> Посмотреть настройки прав групп и пользователей
+
 ```bash
 sudo nano /etc/sudoers
 ```
@@ -154,4 +162,24 @@ sudo systemctl enable ssh
 
 ```bash
 ssh localhost
+```
+
+#### Customization ssh config
+
+> Настрока ssh конфига
+
+Copying the default config
+
+> Копирование стандартного конфига
+
+```bash
+sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.default
+```
+
+Let's start editing
+
+> Начинаем редактирование
+
+```bash
+sudo nano /etc/ssh/sshd_config
 ```
