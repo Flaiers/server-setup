@@ -18,7 +18,7 @@ Customization for debian or ubuntu server. Priority versions for Debian 10.+ and
     * [Check functionality](#checking-functionality-of-the-utility)
     * [Generate rsa keys](#generate-and-upload-a-pair-of-rsa-keys-to-server)
     * [Customization ssh](#customization-ssh-config)
-    * [Save and restart](#save-and-restart-ssh)
+    * [Save and restart](#save-file-sshd_config-and-restart-ssh)
 
 
 Customization the Network
@@ -227,9 +227,9 @@ ChallengeResponseAuthentication no
 
 ***
 
-#### Save and restart ssh
+#### Save file sshd_config and restart ssh
 
-> Сохраняем и перезагружаем ssh
+> Сохраняем файл sshd_config и перезагружаем ssh
 
 ```bash
 systemctl restart ssh
