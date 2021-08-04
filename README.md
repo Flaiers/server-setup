@@ -10,9 +10,15 @@ Customization for debian or ubuntu server. Priority versions for Debian 10.+ and
     * [Install packages](#lets-download-the-main-packages-for-python-development-and-for-further-customization)
     * [Use oh-my-zsh](#install-and-use-oh-my-zsh)
 
-2. #### [Users](#working-with-users)
-    * [Create user](#create-a-user-with-different-rights)
+3. #### [Users](#working-with-users)
+    * [Create users](#create-users-with-different-rights)
 
+4. #### [SSH](#working-and-use-ssh)
+    * [Add to startup](#add-openssh-server-to-startup)
+    * [Check functionality](#checking-functionality-of-the-utility)
+    * [Generate rsa keys](#generate-and-upload-a-pair-of-rsa-keys-to-server)
+    * [Customization ssh](#customization-ssh-config)
+    * [Save and restart](#save-and-restart-ssh)
 
 
 Customization the Network
@@ -98,12 +104,10 @@ sudo apt install -y openssh-server vim zsh mosh nginx htop git curl wget unzip z
 
 > Установка и использование конфига oh-my-zsh
 
-Сommand for installing config
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
-Сommand for run oh-my-zsh
 ```bash
 zsh
 ```
@@ -113,21 +117,120 @@ zsh
 Working with users
 ------------------
 
-#### Create a user with different rights
+#### Create users with different rights
 
-> Создание пользователя с разными правами
+> Создание пользователей с разными правами
 
-Сommand for standard user without rights
+Create standard user without rights
+
+> Создание обычного пользователя без прав
+
 ```bash
 sudo useradd -m -G sudo,wheel -s /bin/bash -p <password> <username>
 ```
 
-Command for user with group and rights root
+Create user with group and rights root
+
+> Создание пользователя с группой и правами root
+
 ```bash
 sudo useradd -m -o -u 0 -g 0 -s /bin/bash -p <password> <username>
 ```
 
 To see the settings of the rights of groups and users
+
+> Посмотреть настройки прав групп и пользователей
+
 ```bash
 sudo nano /etc/sudoers
+```
+
+&nbsp;
+
+Working and use SSH
+-------------------
+
+#### Add openssh-server to startup 
+
+> Добавим openssh-server в автозагрузку
+
+```bash
+sudo systemctl enable ssh
+```
+
+***
+
+#### Checking functionality of the utility
+
+> Проверяем работоспособность утилиты
+
+```bash
+ssh localhost
+```
+
+***
+
+#### Generate and upload a pair of rsa keys to server
+
+> Сгенерировать и загрузить на сервер пару rsa ключей
+
+```bash
+ssh-keygen -t rsa
+```
+
+```bash
+ssh-copy-id -i ~/.ssh/<id_rsa> -p <port> <user>@<host>
+```
+
+***
+
+#### Customization ssh config
+
+> Настрока ssh конфига
+
+Copying the default config
+
+> Копирование стандартного конфига
+
+```bash
+sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.default
+```
+
+Let's start editing
+
+> Начинаем редактирование
+
+```bash
+sudo nano /etc/ssh/sshd_config
+```
+
+Check the most important parameters in config
+
+> Проверьте наиболее важные параметры  в конфиге
+
+```bash
+Port 2222
+LoginGraceTime 2m
+AllowUsers <username>, <username>
+PermitRootLogin no
+PubkeyAuthentication yes
+ClientAliveInterval 600
+ClientAliveCountMax 0
+PasswordAuthentication no
+PermitEmptyPasswords no
+ChallengeResponseAuthentication no
+```
+
+> In the parameter AllowUsers, specify a user or several users to which it is allowed to connect
+
+> В параметре AllowUsers укажите пользователя или несколько пользователей к которым разрешено подключаться
+
+***
+
+#### Save and restart ssh
+
+> Сохраняем и перезагружаем ssh
+
+```bash
+systemctl restart ssh
 ```
