@@ -12,6 +12,7 @@ Customization for debian or ubuntu server. Priority versions for Debian 10.+ and
 
 3. #### [Users](#working-with-users)
     * [Create users](#create-users-with-different-rights)
+    * [Delete users](#delete-users)
 
 4. #### [SSH](#working-and-use-ssh)
     * [Add to startup](#add-openssh-server-to-startup)
@@ -144,6 +145,20 @@ To see the settings of the rights of groups and users
 
 ```bash
 sudo nano /etc/sudoers
+```
+
+***
+
+#### Delete users
+
+> Удаление пользователей
+
+Flags: -f (--force) for forced deletion, -r (--remove) for remove home directory
+
+> Флаги: -f для принудительного удаления, -r для удаления домашней дериктории
+
+```bash
+userdel -f -r <username>
 ```
 
 &nbsp;
