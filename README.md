@@ -19,6 +19,7 @@ Customization for debian or ubuntu server. Priority versions for Debian 10.+ and
     * [Generate rsa keys](#generate-and-upload-a-pair-of-rsa-keys-to-server)
     * [Customization ssh](#customization-ssh-config)
     * [Save and restart](#save-file-sshd_config-and-restart-ssh)
+    * [Connection](#config-ssh-connections)
 
 
 Customization the Network
@@ -227,10 +228,42 @@ ChallengeResponseAuthentication no
 
 ***
 
-#### Save file sshd_config and restart ssh
+#### Save file `/etc/ssh/sshd_config` and restart ssh
 
-> Сохраняем файл sshd_config и перезагружаем ssh
+> Сохраняем файл `/etc/ssh/sshd_config` и перезагружаем ssh
 
 ```bash
 systemctl restart ssh
+```
+
+***
+
+#### Config ssh connections
+
+On your local computer in the ~/.ssh folder create and open file
+
+> На вашем локальном компьютере в папке ~/.ssh создаем и откываем файл
+
+```bash
+sudo nano ~/.ssh/config
+```
+
+Write to a file according to this structure with our data
+
+> Записываем в файл по данной структуре со своими данными
+
+```bash
+Host <name_connection>
+Hostname <ip_address>
+User <username>
+PubKeyAuthentication yes
+Port <port>
+```
+
+Save file `~/.ssh/config` and connect
+
+> Сохраняем файл `~/.ssh/config` и подключаемся
+
+```bash
+ssh <name_connection>
 ```
