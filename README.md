@@ -240,9 +240,9 @@ systemctl restart ssh
 
 #### Config ssh connections
 
-On your local computer in the ~/.ssh folder create and open file
+On your local computer in the `~/.ssh` folder create and open file
 
-> На вашем локальном компьютере в папке ~/.ssh создаем и откываем файл
+> На вашем локальном компьютере в папке `~/.ssh` создаем и откываем файл
 
 ```bash
 sudo nano ~/.ssh/config
