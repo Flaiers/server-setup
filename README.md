@@ -16,6 +16,7 @@ Customization for debian or ubuntu server. Priority versions for Debian 10.+ and
 4. #### [SSH](#working-and-use-ssh)
     * [Add to startup](#add-openssh-server-to-startup)
     * [Check functionality](#checking-functionality-of-the-utility)
+    * [Generate rsa keys](#generate-and-upload-a-pair-of-rsa-keys-to-server)
     * [Customization ssh](#customization-ssh-config)
 
 
@@ -156,6 +157,8 @@ Working and use SSH
 sudo systemctl enable ssh
 ```
 
+***
+
 #### Checking functionality of the utility
 
 > Проверяем работоспособность утилиты
@@ -163,6 +166,22 @@ sudo systemctl enable ssh
 ```bash
 ssh localhost
 ```
+
+***
+
+#### Generate and upload a pair of rsa keys to server
+
+> Сгенерировать и загрузить на сервер пару rsa ключей
+
+```bash
+ssh-keygen -t rsa
+```
+
+```bash
+ssh-copy-id -i ~/.ssh/<id_rsa> -p <port> <user>@<host>
+```
+
+***
 
 #### Customization ssh config
 
