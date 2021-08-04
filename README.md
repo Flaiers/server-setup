@@ -10,6 +10,11 @@ Customization for debian or ubuntu server. Priority versions for Debian 10.+ and
     * [Install packages](#lets-download-the-main-packages-for-python-development-and-for-further-customization)
     * [Use oh-my-zsh](#install-and-use-oh-my-zsh)
 
+2. #### [Users](#working-with-users)
+    * [Create user](#create-a-user-with-different-rights)
+
+
+
 Customization the Network
 -------------------------
 
@@ -93,12 +98,36 @@ sudo apt install -y openssh-server vim zsh mosh nginx htop git curl wget unzip z
 
 > Установка и использование конфига oh-my-zsh
 
-For installing config
+Сommand for installing config
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
-For run oh-my-zsh
+Сommand for run oh-my-zsh
 ```bash
 zsh
+```
+
+&nbsp;
+
+Working with users
+------------------
+
+#### Create a user with different rights
+
+> Создание пользователя с разными правами
+
+Сommand for standard user without rights
+```bash
+sudo useradd -m -G sudo,wheel -s /bin/bash -p <password> <username>
+```
+
+Command for user with group and rights root
+```bash
+sudo useradd -m -o -u 0 -g 0 -s /bin/bash -p <password> <username>
+```
+
+To see the settings of the rights of groups and users
+```bash
+sudo nano /etc/sudoers
 ```
