@@ -10,9 +10,12 @@ Customization for debian or ubuntu server. Priority versions for Debian 10.+ and
     * [Install packages](#lets-download-the-main-packages-for-python-development-and-for-further-customization)
     * [Use oh-my-zsh](#install-and-use-oh-my-zsh)
 
-2. #### [Users](#working-with-users)
-    * [Create user](#create-a-user-with-different-rights)
+3. #### [SSH](#working-and-use-ssh)
+    * [Add to startup](#add-openssh-server-to-startup)
+    * [Check functionality](#checking-functionality-of-the-utility)
 
+4. #### [Users](#working-with-users)
+    * [Create user](#create-a-user-with-different-rights)
 
 
 Customization the Network
@@ -106,6 +109,27 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 Сommand for run oh-my-zsh
 ```bash
 zsh
+```
+
+&nbsp;
+
+Working and use SSH
+-------------------
+
+#### Add openssh-server to startup 
+
+> Добавим openssh-server в автозагрузку
+
+```bash
+sudo systemctl enable ssh
+```
+
+#### Checking functionality of the utility
+
+> Проверяем работоспособность утилиты
+
+```bash
+ssh localhost
 ```
 
 &nbsp;
