@@ -1,16 +1,27 @@
 version: '3.1'
 
 services:
+  nginx:
+    image: nginx
+    container_name: <project-name_nginx>
+    ports:
+      - "80:80"
+    restart: always
+    depends_on:
+      - web
+    volumes:
+      - "./static:/usr/projects/<project-name>/static"
+      - "./nginx:/etc/nginx/conf.d"
+
   web:
     build: .
     container_name: <project-name>
     image: <image-name>
-    command: bash -c "python manage.py collectstatic --noinput && gunicorn --bind 0.0.0.0:8000 uni_cms.wsgi --reload"
+    command: bash -c "python manage.py collectstatic --noinput && gunicorn --bind 0.0.0.0:8000 <project-name>.wsgi --reload"
     restart: always
     ports:
       - "8000:8000"
     volumes:
-      - ".:/<project-name>"
-      - "/usr/web/<project-name>/static:/usr/web/static"
+      - ".:/usr/projects/<project-name>"
     environment:
       <your-environment>
