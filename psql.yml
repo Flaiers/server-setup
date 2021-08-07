@@ -7,9 +7,11 @@ services:
     restart: always
     ports:
       - 5432:5432
+    env_file:
+      - .env
     volumes:
       - /usr/projects/psql/<psql-name>:/var/lib/psql/data
     environment:
-      POSTGRES_PASSWORD: <psql-pass>
-      POSTGRES_USER: <psql-user>
-      POSTGRES_DB: <psql-db>
+      - POSTGRES_PASSWORD
+      - POSTGRES_USER
+      - POSTGRES_DB
