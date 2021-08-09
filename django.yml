@@ -6,11 +6,13 @@ services:
     container_name: <project-name_nginx>
     ports:
       - 80:80
+      # - 443:443
     restart: always
     depends_on:
       - web
     volumes:
       - ./static:/usr/projects/<project-name>/static
+      # - ./nginx/letsencrypt:/etc/letsencrypt
       - ./nginx:/etc/nginx/conf.d
 
   web:
@@ -19,6 +21,8 @@ services:
     image: <image-name>
     command: bash -c "cd src/ && python manage.py collectstatic --noinput && gunicorn --bind 0.0.0.0:8000 congig.wsgi --reload"
     restart: always
+    # depends_on:
+    #   - db
     ports:
       - 8000:8000
     volumes:
