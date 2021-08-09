@@ -5,23 +5,23 @@ services:
     image: nginx
     container_name: <project-name_nginx>
     ports:
-      - "80:80"
+      - 80:80
     restart: always
     depends_on:
       - web
     volumes:
-      - "./static:/usr/projects/<project-name>/static"
-      - "./nginx:/etc/nginx/conf.d"
+      - ./static:/usr/projects/<project-name>/static
+      - ./nginx:/etc/nginx/conf.d
 
   web:
     build: .
     container_name: <project-name>
     image: <image-name>
-    command: bash -c "python manage.py collectstatic --noinput && gunicorn --bind 0.0.0.0:8000 <project-name>.wsgi --reload"
+    command: bash -c "cd src/ && python manage.py collectstatic --noinput && gunicorn --bind 0.0.0.0:8000 congig.wsgi --reload"
     restart: always
     ports:
-      - "8000:8000"
+      - 8000:8000
     volumes:
-      - ".:/usr/projects/<project-name>"
+      - .:/usr/projects/<project-name>
     environment:
-      <your-environment>
+      - LEVEL=PRODUCTION
