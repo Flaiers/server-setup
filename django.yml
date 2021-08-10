@@ -19,7 +19,7 @@ services:
     build: .
     container_name: <project-name>
     image: <image-name>
-    command: bash -c "cd src/ && python manage.py collectstatic --noinput && gunicorn --bind 0.0.0.0:8000 congig.wsgi --reload"
+    command: bash -c "cd src/ && python manage.py collectstatic --noinput && gunicorn --bind 0.0.0.0:8000 config.wsgi --reload"
     restart: always
     # depends_on:
     #   - db
