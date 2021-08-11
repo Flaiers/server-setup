@@ -1,20 +1,23 @@
 Customization for debian or ubuntu server. Priority versions for Debian 10.+ and Ubuntu 20.+
 ============================================================================================
 
-1. ### [Network](#customization-the-network)
+1. ### [Build Django](#building-django-project)
+    * [Run script](#use-my-script-build.sh)
+
+2. ### [Network](#customization-the-network)
     * [Network device](#first-lets-find-out-the-parameters-and-network-device-on-our-server)
     * [Edit parameters](#lets-start-customization-open-the-file-for-editing)
 
-2. ### [Dependencies](#installing-dependencies)
+3. ### [Dependencies](#installing-dependencies)
     * [Apt update upgrade](#first-lets-update-the-apt-packages-and-then-the-system)
     * [Install packages](#lets-download-the-main-packages-for-python-development-and-for-further-customization)
     * [Use oh-my-zsh](#install-and-use-oh-my-zsh)
 
-3. ### [Users](#working-with-users)
+4. ### [Users](#working-with-users)
     * [Create users](#create-users-with-different-rights)
     * [Delete users](#delete-users)
 
-4. ### [SSH](#working-and-use-ssh)
+5. ### [SSH](#working-and-use-ssh)
     * [Add to startup](#add-openssh-server-to-startup)
     * [Check functionality](#checking-functionality-of-the-utility)
     * [Generate rsa keys](#generate-and-upload-a-pair-of-rsa-keys-to-server)
@@ -22,10 +25,24 @@ Customization for debian or ubuntu server. Priority versions for Debian 10.+ and
     * [Save and restart](#save-file-etcsshsshd_config-and-restart-ssh)
     * [Connection](#config-ssh-connections)
 
-4. ### [OpenVPN](#install-and-setup-openvpn)
+6. ### [VPN](#install-and-setup-openvpn)
     * [Install](#download-shell-script-for-installation-openvpn)
     * [Add to startup](#starting-and-add-to-startup)
     * [Connect](#connecting-from-local-computer)
+
+&nbsp;
+
+Building Django project
+-----------------------
+
+# Use my script `build.sh`
+
+> Используйте мой скрипт `build.sh`
+
+```bash
+sudo chmod a+x build.sh ; \
+./build.sh
+```
 
 &nbsp;
 
