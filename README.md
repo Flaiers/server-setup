@@ -49,6 +49,7 @@ sudo chmod a+x build.sh ; \
 
 ### Final project tree
 ```
+.
 ├── build.sh
 ├── db.sqlite3
 ├── django.yml
@@ -66,19 +67,11 @@ sudo chmod a+x build.sh ; \
 │   ├── config
 │   │   ├── asgi.py
 │   │   ├── __init__.py
-│   │   ├── __pycache__
-│   │   │   ├── __init__.cpython-38.pyc
-│   │   │   ├── urls.cpython-38.pyc
-│   │   │   └── wsgi.cpython-38.pyc
 │   │   ├── settings
 │   │   │   ├── base.py
 │   │   │   ├── __init__.py
 │   │   │   ├── local.py
-│   │   │   ├── production.py
-│   │   │   └── __pycache__
-│   │   │       ├── base.cpython-38.pyc
-│   │   │       ├── __init__.cpython-38.pyc
-│   │   │       └── local.cpython-38.pyc
+│   │   │   └── production.py
 │   │   ├── urls.py
 │   │   └── wsgi.py
 │   ├── core
@@ -93,7 +86,7 @@ sudo chmod a+x build.sh ; \
 │   └── manage.py
 └── static
 
-10 directories, 33 files
+8 directories, 27 files
 ```
 
 &nbsp;
