@@ -19,14 +19,17 @@ Customization for debian or ubuntu server. Priority versions for Debian 10.+ and
     * [Check functionality](#checking-functionality-of-the-utility)
     * [Generate rsa keys](#generate-and-upload-a-pair-of-rsa-keys-to-server)
     * [Customization ssh](#customization-ssh-config)
-    * [Save and restart](#save-file-sshd_config-and-restart-ssh)
+    * [Save and restart](#save-file-etcsshsshd_config-and-restart-ssh)
     * [Connection](#config-ssh-connections)
+
+4. #### [OpenVPN](#install-and-setup-openvpn)
+    * [Install](#download-shell-script-for-installation-openvpn)
 
 
 Customization the Network
 -------------------------
 
-#### First, let's find out the parameters and network device on our server
+### First, let's find out the parameters and network device on our server
 
 > Для начала узнаем параметры и сетевое устройство на нашем сервере
 
@@ -34,13 +37,13 @@ Customization the Network
 sudo lshw -class network
 ```
 
-#### From the response, you need a parameter `*-network` then the next parameter `logical name` write it down or remember it
+From the response, you need a parameter `*-network` then the next parameter `logical name` write it down or remember it
 
 > Из ответа нужен параметр `*-network` следующий параметр `logical name` запишите или запомните его
 
 ***
 
-#### Let's start customization, open the file for editing
+### Let's start customization, open the file for editing
 
 > Приступаем к настройке, открываем для редактирования файл
 
@@ -48,7 +51,7 @@ sudo lshw -class network
 sudo nano /etc/network/interfaces
 ```
 
-#### Write the code in this file with their parameters
+Write the code in this file with their parameters
 
 > Записываем в файл данный код, со своими парметрами
 
@@ -65,7 +68,7 @@ iface <logical name> inet static
     metric 0
 ```
 
-#### Reboot the server
+Reboot the server
 
 > Перезагружаем сервер
 
@@ -78,7 +81,7 @@ sudo reboot
 Installing Dependencies
 -----------------------
 
-#### First, let's update the apt packages and then the system
+### First, let's update the apt packages and then the system
 
 > Для начала обновим apt пакеты и затем систему
 
@@ -92,7 +95,7 @@ sudo apt upgrade
 
 ***
 
-#### Let's download the main packages for python development and for further customization
+### Let's download the main packages for python development and for further customization
 
 > Скачиваем основные пакеты для разработки на python и для дальнейшей настройки
 
@@ -102,7 +105,7 @@ sudo apt install -y openssh-server vim zsh mosh nginx htop git curl wget unzip z
 
 ***
 
-#### Install and use oh-my-zsh
+### Install and use oh-my-zsh
 
 > Установка и использование конфига oh-my-zsh
 
@@ -119,7 +122,7 @@ zsh
 Working with users
 ------------------
 
-#### Create users with different rights
+### Create users with different rights
 
 > Создание пользователей с разными правами
 
@@ -149,7 +152,7 @@ sudo nano /etc/sudoers
 
 ***
 
-#### Delete users
+### Delete users
 
 > Удаление пользователей
 
@@ -166,7 +169,7 @@ userdel -f -r <username>
 Working and use SSH
 -------------------
 
-#### Add openssh-server to startup 
+### Add openssh-server to startup 
 
 > Добавим openssh-server в автозагрузку
 
@@ -176,7 +179,7 @@ sudo systemctl enable ssh
 
 ***
 
-#### Checking functionality of the utility
+### Checking functionality of the utility
 
 > Проверяем работоспособность утилиты
 
@@ -186,7 +189,7 @@ ssh localhost
 
 ***
 
-#### Generate and upload a pair of rsa keys to server
+### Generate and upload a pair of rsa keys to server
 
 > Сгенерировать и загрузить на сервер пару rsa ключей
 
@@ -200,7 +203,7 @@ ssh-copy-id -i ~/.ssh/<id_rsa> -p <port> <user>@<host>
 
 ***
 
-#### Customization ssh config
+### Customization ssh config
 
 > Настрока ssh конфига
 
@@ -243,7 +246,7 @@ ChallengeResponseAuthentication no
 
 ***
 
-#### Save file `/etc/ssh/sshd_config` and restart ssh
+### Save file `/etc/ssh/sshd_config` and restart ssh
 
 > Сохраняем файл `/etc/ssh/sshd_config` и перезагружаем ssh
 
@@ -253,7 +256,9 @@ systemctl restart ssh
 
 ***
 
-#### Config ssh connections
+### Config ssh connections
+
+> Настроим ssh соединения
 
 On your local computer in the `~/.ssh` folder create and open file
 
@@ -281,4 +286,26 @@ Save file `~/.ssh/config` and connect
 
 ```bash
 ssh <name_connection>
+```
+
+&nbsp;
+
+Install and setup OpenVPN
+-------------------------
+
+### Download shell script for installation OpenVPN
+
+> Cкачаем shell скрипт для установки OpenVPN
+
+I inherit the installation commands from this guide:
+[https://github.com/Nyr/openvpn-install](https://github.com/Nyr/openvpn-install "Customization for install OpenVPN")
+
+> Я наследую команды установки из этого руководства
+
+Use this command for download and run script, then proceed as directed
+
+> Используйте данную команды для загрузки и запуска скрипта, затем действуйте по указаниям
+
+```bash
+wget https://git.io/vpn -O openvpn-install.sh && bash openvpn-install.sh
 ```
