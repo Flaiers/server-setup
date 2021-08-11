@@ -1,20 +1,20 @@
 Customization for debian or ubuntu server. Priority versions for Debian 10.+ and Ubuntu 20.+
 ============================================================================================
 
-1. #### [Network](#customization-the-network)
+1. ### [Network](#customization-the-network)
     * #### [Network device](#first-lets-find-out-the-parameters-and-network-device-on-our-server)
     * #### [Edit parameters](#lets-start-customization-open-the-file-for-editing)
 
-2. #### [Dependencies](#installing-dependencies)
+2. ### [Dependencies](#installing-dependencies)
     * #### [Apt update upgrade](#first-lets-update-the-apt-packages-and-then-the-system)
     * #### [Install packages](#lets-download-the-main-packages-for-python-development-and-for-further-customization)
     * #### [Use oh-my-zsh](#install-and-use-oh-my-zsh)
 
-3. #### [Users](#working-with-users)
+3. ### [Users](#working-with-users)
     * #### [Create users](#create-users-with-different-rights)
     * #### [Delete users](#delete-users)
 
-4. #### [SSH](#working-and-use-ssh)
+4. ### [SSH](#working-and-use-ssh)
     * #### [Add to startup](#add-openssh-server-to-startup)
     * #### [Check functionality](#checking-functionality-of-the-utility)
     * #### [Generate rsa keys](#generate-and-upload-a-pair-of-rsa-keys-to-server)
@@ -22,8 +22,9 @@ Customization for debian or ubuntu server. Priority versions for Debian 10.+ and
     * #### [Save and restart](#save-file-etcsshsshd_config-and-restart-ssh)
     * #### [Connection](#config-ssh-connections)
 
-4. #### [OpenVPN](#install-and-setup-openvpn)
+4. ### [OpenVPN](#install-and-setup-openvpn)
     * #### [Install](#download-shell-script-for-installation-openvpn)
+    * #### [Connect](#connecting-from-local-computer)
 
 &nbsp;
 
@@ -316,3 +317,23 @@ As a result, you will receive a file in directory `/root/<client>.ovpn`. This co
 > По результату вы получите файл в деритории `/root/<client>.ovpn`. Этот файл конфигурации подключения к VPN
 
 ***
+
+### Connecting from local computer
+
+> Подключение с локального компьютера
+
+I have OS Linux/Ubuntu and will demonstrate on it
+
+> Я имею операционную систему Linux/Ubuntu и буду демонстрировать на ней
+
+![VPN](https://ltdfoto.ru/images/VPN.png)
+
+Сlick: Import from file... And choose your file `<client>.ovpn`. As a result, you will receive a complete setting for adding VPN. Now click: Add
+
+> Нажмите: Импортировать из файла... И выбирите ваш файл `<client>.ovpn`. ПО итогу вы получите полную настройку для добавления VPN. Теперь нажмите: Добавить
+
+![Add VPN](https://ltdfoto.ru/images/add-vpn.png)
+
+Successfully!
+
+> Успешно!
