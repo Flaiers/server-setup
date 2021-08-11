@@ -24,6 +24,7 @@ Customization for debian or ubuntu server. Priority versions for Debian 10.+ and
 
 4. ### [OpenVPN](#install-and-setup-openvpn)
     * #### [Install](#download-shell-script-for-installation-openvpn)
+    * #### [Add to startup](#starting-and-add-to-startup)
     * #### [Connect](#connecting-from-local-computer)
 
 &nbsp;
@@ -88,10 +89,7 @@ Installing Dependencies
 > Для начала обновим apt пакеты и затем систему
 
 ```bash
-sudo apt update
-```
-
-```bash
+sudo apt update ; \
 sudo apt upgrade
 ```
 
@@ -112,10 +110,7 @@ sudo apt install -y openssh-server vim zsh mosh nginx htop git curl wget unzip z
 > Установка и использование конфига oh-my-zsh
 
 ```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-```
-
-```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" ; \
 zsh
 ```
 
@@ -315,6 +310,17 @@ wget https://git.io/vpn -O openvpn-install.sh && bash openvpn-install.sh
 As a result, you will receive a file in directory `/root/<client>.ovpn`. This configuration file connects to VPN
 
 > По результату вы получите файл в деритории `/root/<client>.ovpn`. Этот файл конфигурации подключения к VPN
+
+***
+
+### Starting and add to startup
+
+> Запускаем и включаем в автозагрузку
+
+```bash
+sudo systemctl start openvpn ; \
+sudo systemctl enable openvpn
+```
 
 ***
 
