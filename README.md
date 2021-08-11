@@ -2,7 +2,7 @@ Customization for debian or ubuntu server. Priority versions for Debian 10.+ and
 ============================================================================================
 
 1. ### [Build Django](#building-django-project)
-    * [Run script](#use-my-script-build.sh)
+    * [Run script](#use-my-script-buildsh)
 
 2. ### [Network](#customization-the-network)
     * [Network device](#first-lets-find-out-the-parameters-and-network-device-on-our-server)
@@ -35,7 +35,7 @@ Customization for debian or ubuntu server. Priority versions for Debian 10.+ and
 Building Django project
 -----------------------
 
-# Use my script `build.sh`
+Use my script `build.sh`
 
 > Используйте мой скрипт `build.sh`
 
