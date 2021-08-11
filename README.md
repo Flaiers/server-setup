@@ -3,6 +3,7 @@ Customization for debian or ubuntu server. Priority versions for Debian 10.+ and
 
 1. ### [Build Django](#building-django-project)
     * [Run script](#use-my-script-buildsh)
+    * [Final tree](#final-project-tree)
 
 2. ### [Network](#customization-the-network)
     * [Network device](#first-lets-find-out-the-parameters-and-network-device-on-our-server)
@@ -35,13 +36,64 @@ Customization for debian or ubuntu server. Priority versions for Debian 10.+ and
 Building Django project
 -----------------------
 
-Use my script `build.sh`
+### Use my script `build.sh`
 
 > Используйте мой скрипт `build.sh`
 
 ```bash
 sudo chmod a+x build.sh ; \
 ./build.sh
+```
+
+***
+
+### Final project tree
+```
+├── build.sh
+├── db.sqlite3
+├── django.yml
+├── Dockerfile
+├── LICENSE.md
+├── mysql.yml
+├── nginx
+│   ├── letsencrypt
+│   │   └── __init__
+│   └── nginx.conf
+├── psql.yml
+├── README.md
+├── requirements.txt
+├── src
+│   ├── config
+│   │   ├── asgi.py
+│   │   ├── __init__.py
+│   │   ├── __pycache__
+│   │   │   ├── __init__.cpython-38.pyc
+│   │   │   ├── urls.cpython-38.pyc
+│   │   │   └── wsgi.cpython-38.pyc
+│   │   ├── settings
+│   │   │   ├── base.py
+│   │   │   ├── __init__.py
+│   │   │   ├── local.py
+│   │   │   ├── production.py
+│   │   │   └── __pycache__
+│   │   │       ├── base.cpython-38.pyc
+│   │   │       ├── __init__.cpython-38.pyc
+│   │   │       └── local.cpython-38.pyc
+│   │   ├── urls.py
+│   │   └── wsgi.py
+│   ├── core
+│   │   ├── admin.py
+│   │   ├── apps.py
+│   │   ├── __init__.py
+│   │   ├── migrations
+│   │   │   └── __init__.py
+│   │   ├── models.py
+│   │   ├── tests.py
+│   │   └── views.py
+│   └── manage.py
+└── static
+
+10 directories, 33 files
 ```
 
 &nbsp;
