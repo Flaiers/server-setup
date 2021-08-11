@@ -1,32 +1,38 @@
 Customization for debian or ubuntu server. Priority versions for Debian 10.+ and Ubuntu 20.+
 ============================================================================================
 
-1. #### [Network](#customization-the-network)
-    * [Network device](#first-lets-find-out-the-parameters-and-network-device-on-our-server)
-    * [Edit parameters](#lets-start-customization-open-the-file-for-editing)
+1. ### [Network](#customization-the-network)
+    * #### [Network device](#first-lets-find-out-the-parameters-and-network-device-on-our-server)
+    * #### [Edit parameters](#lets-start-customization-open-the-file-for-editing)
 
-2. #### [Dependencies](#installing-dependencies)
-    * [Apt update upgrade](#first-lets-update-the-apt-packages-and-then-the-system)
-    * [Install packages](#lets-download-the-main-packages-for-python-development-and-for-further-customization)
-    * [Use oh-my-zsh](#install-and-use-oh-my-zsh)
+2. ### [Dependencies](#installing-dependencies)
+    * #### [Apt update upgrade](#first-lets-update-the-apt-packages-and-then-the-system)
+    * #### [Install packages](#lets-download-the-main-packages-for-python-development-and-for-further-customization)
+    * #### [Use oh-my-zsh](#install-and-use-oh-my-zsh)
 
-3. #### [Users](#working-with-users)
-    * [Create users](#create-users-with-different-rights)
-    * [Delete users](#delete-users)
+3. ### [Users](#working-with-users)
+    * #### [Create users](#create-users-with-different-rights)
+    * #### [Delete users](#delete-users)
 
-4. #### [SSH](#working-and-use-ssh)
-    * [Add to startup](#add-openssh-server-to-startup)
-    * [Check functionality](#checking-functionality-of-the-utility)
-    * [Generate rsa keys](#generate-and-upload-a-pair-of-rsa-keys-to-server)
-    * [Customization ssh](#customization-ssh-config)
-    * [Save and restart](#save-file-sshd_config-and-restart-ssh)
-    * [Connection](#config-ssh-connections)
+4. ### [SSH](#working-and-use-ssh)
+    * #### [Add to startup](#add-openssh-server-to-startup)
+    * #### [Check functionality](#checking-functionality-of-the-utility)
+    * #### [Generate rsa keys](#generate-and-upload-a-pair-of-rsa-keys-to-server)
+    * #### [Customization ssh](#customization-ssh-config)
+    * #### [Save and restart](#save-file-etcsshsshd_config-and-restart-ssh)
+    * #### [Connection](#config-ssh-connections)
 
+4. ### [OpenVPN](#install-and-setup-openvpn)
+    * #### [Install](#download-shell-script-for-installation-openvpn)
+    * #### [Add to startup](#starting-and-add-to-startup)
+    * #### [Connect](#connecting-from-local-computer)
+
+&nbsp;
 
 Customization the Network
 -------------------------
 
-#### First, let's find out the parameters and network device on our server
+### First, let's find out the parameters and network device on our server
 
 > Для начала узнаем параметры и сетевое устройство на нашем сервере
 
@@ -34,13 +40,13 @@ Customization the Network
 sudo lshw -class network
 ```
 
-#### From the response, you need a parameter `*-network` then the next parameter `logical name` write it down or remember it
+From the response, you need a parameter `*-network` then the next parameter `logical name` write it down or remember it
 
 > Из ответа нужен параметр `*-network` следующий параметр `logical name` запишите или запомните его
 
 ***
 
-#### Let's start customization, open the file for editing
+### Let's start customization, open the file for editing
 
 > Приступаем к настройке, открываем для редактирования файл
 
@@ -48,7 +54,7 @@ sudo lshw -class network
 sudo nano /etc/network/interfaces
 ```
 
-#### Write the code in this file with their parameters
+Write the code in this file with their parameters
 
 > Записываем в файл данный код, со своими парметрами
 
@@ -65,7 +71,7 @@ iface <logical name> inet static
     metric 0
 ```
 
-#### Reboot the server
+Reboot the server
 
 > Перезагружаем сервер
 
@@ -78,21 +84,18 @@ sudo reboot
 Installing Dependencies
 -----------------------
 
-#### First, let's update the apt packages and then the system
+### First, let's update the apt packages and then the system
 
 > Для начала обновим apt пакеты и затем систему
 
 ```bash
-sudo apt update
-```
-
-```bash
+sudo apt update ; \
 sudo apt upgrade
 ```
 
 ***
 
-#### Let's download the main packages for python development and for further customization
+### Let's download the main packages for python development and for further customization
 
 > Скачиваем основные пакеты для разработки на python и для дальнейшей настройки
 
@@ -102,15 +105,12 @@ sudo apt install -y openssh-server vim zsh mosh nginx htop git curl wget unzip z
 
 ***
 
-#### Install and use oh-my-zsh
+### Install and use oh-my-zsh
 
 > Установка и использование конфига oh-my-zsh
 
 ```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-```
-
-```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" ; \
 zsh
 ```
 
@@ -119,7 +119,7 @@ zsh
 Working with users
 ------------------
 
-#### Create users with different rights
+### Create users with different rights
 
 > Создание пользователей с разными правами
 
@@ -149,7 +149,7 @@ sudo nano /etc/sudoers
 
 ***
 
-#### Delete users
+### Delete users
 
 > Удаление пользователей
 
@@ -166,7 +166,7 @@ userdel -f -r <username>
 Working and use SSH
 -------------------
 
-#### Add openssh-server to startup 
+### Add openssh-server to startup 
 
 > Добавим openssh-server в автозагрузку
 
@@ -176,7 +176,7 @@ sudo systemctl enable ssh
 
 ***
 
-#### Checking functionality of the utility
+### Checking functionality of the utility
 
 > Проверяем работоспособность утилиты
 
@@ -186,7 +186,7 @@ ssh localhost
 
 ***
 
-#### Generate and upload a pair of rsa keys to server
+### Generate and upload a pair of rsa keys to server
 
 > Сгенерировать и загрузить на сервер пару rsa ключей
 
@@ -200,7 +200,7 @@ ssh-copy-id -i ~/.ssh/<id_rsa> -p <port> <user>@<host>
 
 ***
 
-#### Customization ssh config
+### Customization ssh config
 
 > Настрока ssh конфига
 
@@ -243,7 +243,7 @@ ChallengeResponseAuthentication no
 
 ***
 
-#### Save file `/etc/ssh/sshd_config` and restart ssh
+### Save file `/etc/ssh/sshd_config` and restart ssh
 
 > Сохраняем файл `/etc/ssh/sshd_config` и перезагружаем ssh
 
@@ -253,7 +253,9 @@ systemctl restart ssh
 
 ***
 
-#### Config ssh connections
+### Config ssh connections
+
+> Настроим ssh соединения
 
 On your local computer in the `~/.ssh` folder create and open file
 
@@ -282,3 +284,62 @@ Save file `~/.ssh/config` and connect
 ```bash
 ssh <name_connection>
 ```
+
+&nbsp;
+
+Install and setup OpenVPN
+-------------------------
+
+### Download shell script for installation OpenVPN
+
+> Cкачаем shell скрипт для установки OpenVPN
+
+I inherit the installation commands from this guide:
+[https://github.com/Nyr/openvpn-install](https://github.com/Nyr/openvpn-install "Customization for install OpenVPN")
+
+> Я наследую команды установки из этого руководства
+
+Use this command for download and run script, then proceed as directed
+
+> Используйте данную команды для загрузки и запуска скрипта, затем действуйте по указаниям
+
+```bash
+wget https://git.io/vpn -O openvpn-install.sh && bash openvpn-install.sh
+```
+
+As a result, you will receive a file in directory `/root/<client>.ovpn`. This configuration file connects to VPN
+
+> По результату вы получите файл в деритории `/root/<client>.ovpn`. Этот файл конфигурации подключения к VPN
+
+***
+
+### Starting and add to startup
+
+> Запускаем и включаем в автозагрузку
+
+```bash
+sudo systemctl start openvpn ; \
+sudo systemctl enable openvpn
+```
+
+***
+
+### Connecting from local computer
+
+> Подключение с локального компьютера
+
+I have OS Linux/Ubuntu and will demonstrate on it
+
+> Я имею операционную систему Linux/Ubuntu и буду демонстрировать на ней
+
+![VPN](https://ltdfoto.ru/images/VPN.png)
+
+Сlick: Import from file... And choose your file `<client>.ovpn`. As a result, you will receive a complete setting for adding VPN. Now click: Add
+
+> Нажмите: Импортировать из файла... И выбирите ваш файл `<client>.ovpn`. ПО итогу вы получите полную настройку для добавления VPN. Теперь нажмите: Добавить
+
+![Add VPN](https://ltdfoto.ru/images/add-vpn.png)
+
+Successfully!
+
+> Успешно!
