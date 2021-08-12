@@ -25,7 +25,7 @@ else
 fi
 
 source env/bin/activate
-pip install -U pip && pip install --no-cache-dir -r requirements.txt
+pip install -U pip && pip install -r requirements.txt
 
 django-admin startproject config
 mv config/ src/ && cd src/
