@@ -6,7 +6,7 @@ read -p "----------------------
 | Python interpreter |
 ----------------------
 Default: /usr/bin/python3
-(Press: Enter for choose default)
+(Сlick Enter for choose default)
 If you wont to change, write: " python_interpreter
 
 read -p "
@@ -14,7 +14,7 @@ read -p "
 | First app name |
 ------------------
 Default: core
-(Press: Enter for choose default)
+(Сlick Enter for choose default)
 If you wont to change, write: " first_app_name
 
 
