@@ -54,7 +54,7 @@ To build and raise project you need to:
 
 1. Run shell script that creates and initially configures a Django project
 
-2. To raise project in production mode, you need to select a database, the example is PostgreSQL and MySQL. Docker compose files is in repository. You need to move the content to the main file with instructions (`django.yml`) necessary to start and configure the services
+2. To raise project in production mode, you need to select a database, example is PostgreSQL and MySQL. Docker compose files is in repository. You need to move the content in `services` to main file with instructions (`django.yml`) necessary to start and configure the services
 
 3. 123
 
@@ -62,7 +62,7 @@ To build and raise project you need to:
 >
 > 1. Запустить shell скрипт который создает и первично настраивает Django проект
 >
-> 2. Для поднятия проекта в продакшн режиме вам нужно выбрать базу данных, в пример приведены PostgreSQL и MySQL. Docker compose файлы есть в репозитории. Нужно содержимое переместить в главный файл с инструкциями (`django.yml`) необходимыми для запуска и настройки сервисов
+> 2. Для поднятия проекта в продакшн режиме вам нужно выбрать базу данных, в пример приведены PostgreSQL и MySQL. Docker compose файлы есть в репозитории. Нужно содержимое в `services` переместить в главный файл с инструкциями (`django.yml`) необходимыми для запуска и настройки сервисов
 >
 > 3. 123
 
