@@ -1,24 +1,27 @@
 Customization for debian or ubuntu server. Priority versions for Debian 10.+ and Ubuntu 20.+
 ============================================================================================
 
-1. ### [Build Django](#building-django-project)
-    * [Run script](#use-my-script-buildsh)
-    * [Final tree](#final-project-tree)
+1. ### [Project structure](#general-structure-of-the-project)
 
-2. ### [Network](#customization-the-network)
+2. ### [Build Django](#building-django-project)
+    * [Description](#description-for-build-django-project)
+    * [Run script](#use-my-script-buildsh)
+    * [Final tree](#final-tree-of-created-project)
+
+3. ### [Network](#customization-the-network)
     * [Network device](#first-lets-find-out-the-parameters-and-network-device-on-our-server)
     * [Edit parameters](#lets-start-customization-open-the-file-for-editing)
 
-3. ### [Dependencies](#installing-dependencies)
+4. ### [Dependencies](#installing-dependencies)
     * [Apt update upgrade](#first-lets-update-the-apt-packages-and-then-the-system)
     * [Install packages](#lets-download-the-main-packages-for-python-development-and-for-further-customization)
     * [Use oh-my-zsh](#install-and-use-oh-my-zsh)
 
-4. ### [Users](#working-with-users)
+5. ### [Users](#working-with-users)
     * [Create users](#create-users-with-different-rights)
     * [Delete users](#delete-users)
 
-5. ### [SSH](#working-and-use-ssh)
+6. ### [SSH](#working-and-use-ssh)
     * [Add to startup](#add-openssh-server-to-startup)
     * [Check functionality](#checking-functionality-of-the-utility)
     * [Generate rsa keys](#generate-and-upload-a-pair-of-rsa-keys-to-server)
@@ -26,15 +29,44 @@ Customization for debian or ubuntu server. Priority versions for Debian 10.+ and
     * [Save and restart](#save-file-etcsshsshd_config-and-restart-ssh)
     * [Connection](#config-ssh-connections)
 
-6. ### [VPN](#install-and-setup-openvpn)
+7. ### [VPN](#install-and-setup-openvpn)
     * [Install](#download-shell-script-for-installation-openvpn)
     * [Add to startup](#starting-and-add-to-startup)
     * [Connect](#connecting-from-local-computer)
 
 &nbsp;
 
+General structure of the project
+--------------------------------
+
+123
+
+&nbsp;
+
 Building Django project
 -----------------------
+
+### Description for build Django project
+
+> Описание для сборки Django проекта
+
+To build and raise project you need to:
+
+1. Run shell script that creates and initially configures a Django project
+
+2. To raise project in production mode, you need to select a database, example is PostgreSQL and MySQL. Docker compose files is in repository. You need to move the content in `services` to main file with instructions (`django.yml`) necessary to start and configure the services
+
+3. 123
+
+> Для того чтобы собрать и поднять проект вам нужно:
+>
+> 1. Запустить shell скрипт который создает и первично настраивает Django проект
+>
+> 2. Для поднятия проекта в продакшн режиме вам нужно выбрать базу данных, в пример приведены PostgreSQL и MySQL. Docker compose файлы есть в репозитории. Нужно содержимое в `services` переместить в главный файл с инструкциями (`django.yml`) необходимыми для запуска и настройки сервисов
+>
+> 3. 123
+
+***
 
 ### Use my script `build.sh`
 
@@ -73,7 +105,10 @@ If you wont to change, write: my_app
 
 ***
 
-### Final project tree
+### Final tree of created project
+
+> Финальное дерево созданного проекта
+
 ```
 .
 ├── build.sh
