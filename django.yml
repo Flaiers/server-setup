@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.7'
 
 services:
   nginx:
@@ -16,7 +16,10 @@ services:
       - ./nginx:/etc/nginx/conf.d
 
   web:
-    build: .
+    build:
+      context: .
+      args:
+        - PROJECT_NAME
     container_name: ${PROJECT_NAME}
     image: ${IMAGE_NAME}
     command: bash -c "cd src/ && python manage.py collectstatic --noinput && gunicorn --bind 0.0.0.0:8000 config.wsgi --reload"
@@ -28,4 +31,4 @@ services:
     volumes:
       - .:/usr/projects/${PROJECT_NAME}
     environment:
-      - LEVEL=PRODUCTION
+      - LEVEL
