@@ -1,9 +1,9 @@
-version: '3.1'
+version: '3.8'
 
 services:
   nginx:
     image: nginx
-    container_name: <project-name_nginx>
+    container_name: ${NGINX_NAME}
     ports:
       - 80:80
       # - 443:443
@@ -11,14 +11,14 @@ services:
     depends_on:
       - web
     volumes:
-      - ./static:/usr/projects/<project-name>/static
+      - ./static:/usr/projects/${PROJECT_NAME}/static
       # - ./nginx/letsencrypt:/etc/letsencrypt
       - ./nginx:/etc/nginx/conf.d
 
   web:
     build: .
-    container_name: <project-name>
-    image: <image-name>
+    container_name: ${PROJECT_NAME}
+    image: ${IMAGE_NAME}
     command: bash -c "cd src/ && python manage.py collectstatic --noinput && gunicorn --bind 0.0.0.0:8000 config.wsgi --reload"
     restart: always
     # depends_on:
@@ -26,6 +26,6 @@ services:
     ports:
       - 8000:8000
     volumes:
-      - .:/usr/projects/<project-name>
+      - .:/usr/projects/${PROJECT_NAME}
     environment:
       - LEVEL=PRODUCTION

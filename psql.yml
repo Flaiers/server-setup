@@ -1,16 +1,14 @@
-version: '3.1'
+version: '3.8'
 
 services:
   db:
-    container_name: <psql-name>
+    container_name: ${POSTGRES_NAME}
     image: postgres
     restart: always
     ports:
       - 5432:5432
-    env_file:
-      - .env
     volumes:
-      - /usr/projects/psql/<psql-name>:/var/lib/psql/data
+      - /usr/projects/psql/${POSTGRES_NAME}:/var/lib/psql/data
     environment:
       - POSTGRES_PASSWORD
       - POSTGRES_USER

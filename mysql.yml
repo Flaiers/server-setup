@@ -1,16 +1,14 @@
-version: '3.1'
+version: '3.8'
 
 services:
   db:
-    container_name: <mysql-name>
+    container_name: ${MYSQL_NAME}
     image: mysql
     restart: always
     ports:
       - 3306:3306
-    env_file:
-      - .env
     volumes:
-      - /usr/projects/mysql/<mysql-name>:/var/lib/mysql
+      - /usr/projects/mysql/${MYSQL_NAME}:/var/lib/mysql
     environment:
       - MYSQL_ROOT_USER
       - MYSQL_ROOT_PASSWORD
