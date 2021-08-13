@@ -39,25 +39,25 @@ Customization for debian or ubuntu server. Priority versions for Debian 10.+ and
 General structure of the project
 --------------------------------
 
-Configuration Nginx server and ssl certificates are in folder `/nginx`
+* Configuration Nginx server and ssl certificates are in folder `/nginx`
 
-Advanced settings for Django project are in folder `/settings`
+* Advanced settings for Django project are in folder `/settings`
 
-Environment variable data are in file `.env`
+* Environment variable data are in file `.env`
 
-Files and folders preferred for Python development, that are ignored by git service are in file `.gitignore`
+* Files and folders preferred for Python development, that are ignored by git service are in file `.gitignore`
 
-Сommands for build image of this project for docker are in file `Dockerfile`
+* Сommands for build image of this project for docker are in file `Dockerfile`
 
-Build of project and initial configuration of Django project on *nix systems is in file `build.sh`
+* Build of project and initial configuration of Django project on *nix systems is in file `build.sh`
 
-Required instructions for run and configuring main services of project are in file `django.yml`
+* Required instructions for run and configuring main services of project are in file `django.yml`
 
-Required instructions for run and configuring database PostgreSQL are in file `psql.yml`
+* Required instructions for run and configuring database PostgreSQL are in file `psql.yml`
 
-Required instructions for run and configuring database MySQL are in file `mysql.yml`
+* Required instructions for run and configuring database MySQL are in file `mysql.yml`
 
-Required pip packages for run Django project are in file `requirements.txt`
+* Required pip packages for run Django project are in file `requirements.txt`
 
 > Конфигурация сервера nginx и ssl сертификаты находятся в папке `/nginx`
 >
@@ -78,6 +78,38 @@ Required pip packages for run Django project are in file `requirements.txt`
 > Необходимые инструкции для запуска и настройки базы данных MySQL находятся в файле `mysql.yml`
 >
 > Необходимые pip пакеты для запуска Django проекта находятся в файле `requirements.txt`
+
+***
+
+### Folder `/nginx`
+
+* Certificates, keys and additional files to activate https protocol are in folder `/letsencrypt`
+
+* Configuration data for indicate conditions location project in the WWW are in file `nginx.conf`
+
+> Сертификаты, ключи и дополнительные файлы для активации https протокола находятся в папке `/letsencrypt`
+> 
+> Конфигурационные данные для указания условий размещения проекта в WWW находятся в файле `nginx.conf`
+
+***
+
+### Folder `/settings`
+
+* Condition for run project in local or production mode is in file `__init__.py`
+
+* Basic settings for Django project are in file `base.py`
+
+* Configuring database connection in local mode is in file `local.py`
+
+* Configuring database connection in production mode is in file `production.py`
+
+> Условие для запуска проекта в локальном или продакшн режиме находится в файле `__init__.py`
+>
+> Базовые настройки для Django проекта находятся в файле `base.py`
+> 
+> Настройка подключения к базе данных в локальном режиме находится в файле `local.py`
+>
+> Настройка подключения к базе данных в продакшн режиме находится в файле `production.py`
 
 &nbsp;
 
@@ -261,7 +293,7 @@ sudo apt upgrade
 > Скачиваем основные пакеты для разработки на python и для дальнейшей настройки
 
 ```bash
-sudo apt install -y openssh-server vim zsh mosh nginx htop git curl wget unzip zip make python3-dev python3-lxml supervisor python3 build-essential libssl-dev libffi-dev python3-pip python3-venv tk-dev libncurses5-dev libncursesw5-dev libreadline6-dev libdb5.3-dev libgdbm-dev libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev
+sudo apt install -y openssh-server vim zsh mosh htop git curl wget unzip zip make python3-dev python3-lxml supervisor python3 build-essential libssl-dev libffi-dev python3-pip python3-venv tk-dev libncurses5-dev libncursesw5-dev libreadline6-dev libdb5.3-dev libgdbm-dev libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev
 ```
 
 ***
@@ -493,13 +525,13 @@ I have OS Linux/Ubuntu and will demonstrate on it
 
 > Я имею операционную систему Linux/Ubuntu и буду демонстрировать на ней
 
-![VPN](https://ltdfoto.ru/images/VPN.png)
+![VPN](https://fla.codes/static/img/vpn.png)
 
 Сlick: Import from file... And choose your file `<client>.ovpn`. As a result, you will receive a complete setting for adding VPN. Now click Add
 
 > Нажмите: Импортировать из файла... И выбирите ваш файл `<client>.ovpn`. ПО итогу вы получите полную настройку для добавления VPN. Теперь нажмите: Добавить
 
-![Add VPN](https://ltdfoto.ru/images/add-vpn.png)
+![Add VPN](https://fla.codes/static/img/add-vpn.png)
 
 Successfully!
 
