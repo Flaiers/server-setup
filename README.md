@@ -181,43 +181,45 @@ If you wont to change, write: my_app
 
 ```
 .
-├── build.sh
-├── db.sqlite3
-├── django.yml
-├── Dockerfile
-├── LICENSE.md
-├── mysql.yml
 ├── nginx
 │   ├── letsencrypt
 │   │   └── __init__
 │   └── nginx.conf
-├── psql.yml
-├── README.md
-├── requirements.txt
 ├── src
 │   ├── config
-│   │   ├── asgi.py
-│   │   ├── __init__.py
 │   │   ├── settings
-│   │   │   ├── base.py
 │   │   │   ├── __init__.py
+│   │   │   ├── base.py
 │   │   │   ├── local.py
 │   │   │   └── production.py
+│   │   ├── __init__.py
+│   │   ├── asgi.py
 │   │   ├── urls.py
 │   │   └── wsgi.py
 │   ├── core
-│   │   ├── admin.py
-│   │   ├── apps.py
-│   │   ├── __init__.py
 │   │   ├── migrations
 │   │   │   └── __init__.py
+│   │   ├── __init__.py
+│   │   ├── admin.py
+│   │   ├── apps.py
 │   │   ├── models.py
 │   │   ├── tests.py
 │   │   └── views.py
 │   └── manage.py
-└── static
+├── static
+├── .env
+├── .gitignore
+├── Dockerfile
+├── LICENSE
+├── README.md
+├── build.sh
+├── db.sqlite3
+├── django.yml
+├── mysql.yml
+├── psql.yml
+└── requirements.txt
 
-8 directories, 27 files
+8 directories, 29 files
 ```
 
 &nbsp;
