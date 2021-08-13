@@ -152,9 +152,9 @@ The first thing to choose is the path to interpreter Python. If your path to int
 > Первое что нужно выбрать это путь до интерпретатора Python. Если ваш путь до интерпретатора `/usr/bin/python3`, нажмите Enter. Иначе напишите ваш `/path/to/python` и нажмите Enter
 
 ```
-----------------------
+┌────────────────────┐
 | Python interpreter |
-----------------------
+└────────────────────┘
 Default: /usr/bin/python3
 (Сlick Enter for choose default)
 If you wont to change, write: /path/to/python
@@ -165,9 +165,9 @@ The second thing to choose is the name of first Django app. If you want first ap
 > Второе что нужно выбрать это название первого Django приложения. Если вы хотите первое приложение с названием `core`, нажмите Enter. Иначе напишите ваше название `my_app` и нажмите Enter
 
 ```
-------------------
-| First app name |
-------------------
+┌────────────────┐
+│ First app name |
+└────────────────┘
 Default: core
 (Сlick Enter for choose default)
 If you wont to change, write: my_app

@@ -2,17 +2,16 @@
 python_interpreter=""
 first_app_name=""
 
-read -p "----------------------
+read -p "┌────────────────────┐
 | Python interpreter |
-----------------------
+└────────────────────┘
 Default: /usr/bin/python3
 (Сlick Enter for choose default)
 If you wont to change, write: " python_interpreter
 
-read -p "
-------------------
-| First app name |
-------------------
+read -p "┌────────────────┐
+│ First app name |
+└────────────────┘
 Default: core
 (Сlick Enter for choose default)
 If you wont to change, write: " first_app_name
