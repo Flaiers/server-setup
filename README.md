@@ -79,6 +79,38 @@ General structure of the project
 >
 > Необходимые pip пакеты для запуска Django проекта находятся в файле `requirements.txt`
 
+***
+
+### Folder `/nginx`
+
+* Certificates, keys and additional files to activate https protocol are in folder `/letsencrypt`
+
+* Configuration data for indicate conditions location project in the WWW are in file `nginx.conf`
+
+> Сертификаты, ключи и дополнительные файлы для активации https протокола находятся в папке `/letsencrypt`
+> 
+> Конфигурационные данные для указания условий размещения проекта в WWW находятся в файле `nginx.conf`
+
+***
+
+### Folder `/settings`
+
+* Condition for run project in local or production mode is in file `__init__.py`
+
+* Basic settings for Django project are in file `base.py`
+
+* Configuring database connection in local mode is in file `local.py`
+
+* Configuring database connection in production mode is in file `production.py`
+
+> Условие для запуска проекта в локальном или продакшн режиме находится в файле `__init__.py`
+>
+> Базовые настройки для Django проекта находятся в файле `base.py`
+> 
+> Настройка подключения к базе данных в локальном режиме находится в файле `local.py`
+>
+> Настройка подключения к базе данных в продакшн режиме находится в файле `production.py`
+
 &nbsp;
 
 Build Django project
