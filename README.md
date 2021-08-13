@@ -3,13 +3,13 @@ Customization for debian or ubuntu server. Priority versions for Debian 10.+ and
 
 1. ### [Project structure](#general-structure-of-the-project)
 
-2. ### [Build Django](#building-django-project)
+2. ### [Build Django](#build-django-project)
     * [Description](#description-for-build-django-project)
     * [Run script](#use-my-script-buildsh)
     * [Final tree](#final-tree-of-created-project)
 
 3. ### [Network](#customization-the-network)
-    * [Network device](#first-lets-find-out-the-parameters-and-network-device-on-our-server)
+    * [Network device](#first-lets-find-out-the-parameters-and-network-device-on-server)
     * [Edit parameters](#lets-start-customization-open-the-file-for-editing)
 
 4. ### [Dependencies](#installing-dependencies)
@@ -31,7 +31,7 @@ Customization for debian or ubuntu server. Priority versions for Debian 10.+ and
 
 7. ### [VPN](#install-and-setup-openvpn)
     * [Install](#download-shell-script-for-installation-openvpn)
-    * [Add to startup](#starting-and-add-to-startup)
+    * [Add to startup](#start-and-add-to-startup)
     * [Connect](#connecting-from-local-computer)
 
 &nbsp;
@@ -39,12 +39,50 @@ Customization for debian or ubuntu server. Priority versions for Debian 10.+ and
 General structure of the project
 --------------------------------
 
-123
+Configuration Nginx server and ssl certificates are in folder `/nginx`
+
+Advanced settings for Django project are in folder `/settings`
+
+Environment variable data are in file `.env`
+
+Files and folders preferred for Python development, that are ignored by git service are in file `.gitignore`
+
+Сommands for build image of this project for docker are in file `Dockerfile`
+
+Build of project and initial configuration of Django project on *nix systems is in file `build.sh`
+
+Required instructions for run and configuring main services of project are in file `django.yml`
+
+Required instructions for run and configuring database PostgreSQL are in file `psql.yml`
+
+Required instructions for run and configuring database MySQL are in file `mysql.yml`
+
+Required pip packages for run Django project are in file `requirements.txt`
+
+> Конфигурация сервера nginx и ssl сертификаты находятся в папке `/nginx`
+>
+> Продвинутые настройки для Django проекта находятся в папке `/settings`
+>
+> Данные переменного окружения находятся в файле `.env` 
+>
+> Файлы и папки предпочтительные для Python разработки, игнорирующиеся сервисом git, находятся в файле `.gitignore`
+>
+> Команды для сборки образа данного проекта для docker находится в файле `Dockerfile`
+>
+> Сборка проекта и первичная настройка Django проекта на *nix системах находится в файле `build.sh`
+>
+> Необходимые инструкции для запуска и настройки главных сервисов проекта находятся в файле `django.yml`
+>
+> Необходимые инструкции для запуска и настройки базы данных PostgreSQL находятся в файле `psql.yml`
+>
+> Необходимые инструкции для запуска и настройки базы данных MySQL находятся в файле `mysql.yml`
+>
+> Необходимые pip пакеты для запуска Django проекта находятся в файле `requirements.txt`
 
 &nbsp;
 
-Building Django project
------------------------
+Build Django project
+--------------------
 
 ### Description for build Django project
 
@@ -54,7 +92,7 @@ To build and raise project you need to:
 
 1. Run shell script that creates and initially configures a Django project
 
-2. To raise project in production mode, you need to select a database, example is PostgreSQL and MySQL. Docker compose files is in repository. You need to move the content in `services` to main file with instructions (`django.yml`) necessary to start and configure the services
+2. To raise project in production mode, you need to select a database, example is PostgreSQL and MySQL. Docker compose files is in repository. You need to move the content in `services` to main file with instructions (`django.yml`) required to run and configure the services
 
 3. 123
 
@@ -92,7 +130,7 @@ If you wont to change, write: /path/to/python
 
 The second thing to choose is the name of first Django app. If you want first app with a name `core`, click Enter. Else write your name `my_app` and click Enter
 
-> Второе что нужно выбрать это название первого приложения Django. Если вы хотите первое приложение с названием `core`, нажмите Enter. Иначе напишите ваше название `my_app` и нажмите Enter
+> Второе что нужно выбрать это название первого Django приложения. Если вы хотите первое приложение с названием `core`, нажмите Enter. Иначе напишите ваше название `my_app` и нажмите Enter
 
 ```
 ------------------
@@ -155,9 +193,9 @@ If you wont to change, write: my_app
 Customization the Network
 -------------------------
 
-### First, let's find out the parameters and network device on our server
+### First, let's find out the parameters and network device on server
 
-> Для начала узнаем параметры и сетевое устройство на нашем сервере
+> Для начала узнаем параметры и сетевое устройство на сервере
 
 ```bash
 sudo lshw -class network
@@ -436,7 +474,7 @@ As a result, you will receive a file in directory `/root/<client>.ovpn`. This co
 
 ***
 
-### Starting and add to startup
+### Start and add to startup
 
 > Запускаем и включаем в автозагрузку
 
