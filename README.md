@@ -1,5 +1,5 @@
-Customization for debian or ubuntu server. Priority versions for Debian 10.+ and Ubuntu 20.+
-============================================================================================
+Setup for debian or ubuntu server. Priority versions for Debian 10.+ and Ubuntu 20.+
+====================================================================================
 
 1. ### [Project structure](#general-structure-of-the-project)
 
@@ -8,13 +8,13 @@ Customization for debian or ubuntu server. Priority versions for Debian 10.+ and
     * [Run script](#use-my-script-buildsh)
     * [Final tree](#final-tree-of-created-project)
 
-3. ### [Network](#customization-the-network)
+3. ### [Network](#setup-network)
     * [Network device](#first-lets-find-out-the-parameters-and-network-device-on-server)
-    * [Edit parameters](#lets-start-customization-open-the-file-for-editing)
+    * [Edit parameters](#lets-start-setup-open-file-for-editing)
 
 4. ### [Dependencies](#installing-dependencies)
     * [Apt update upgrade](#first-lets-update-the-apt-packages-and-then-the-system)
-    * [Install packages](#lets-download-the-main-packages-for-python-development-and-for-further-customization)
+    * [Install packages](#lets-download-the-main-packages-for-python-development-and-for-further-Sqetup)
     * [Use oh-my-zsh](#install-and-use-oh-my-zsh)
 
 5. ### [Users](#working-with-users)
@@ -25,7 +25,7 @@ Customization for debian or ubuntu server. Priority versions for Debian 10.+ and
     * [Add to startup](#add-openssh-server-to-startup)
     * [Check functionality](#checking-functionality-of-the-utility)
     * [Generate rsa keys](#generate-and-upload-a-pair-of-rsa-keys-to-server)
-    * [Customization ssh](#customization-ssh-config)
+    * [Setup ssh](#setup-ssh-config)
     * [Save and restart](#save-file-etcsshsshd_config-and-restart-ssh)
     * [Connection](#config-ssh-connections)
 
@@ -38,7 +38,6 @@ Customization for debian or ubuntu server. Priority versions for Debian 10.+ and
 
 General structure of the project
 --------------------------------
-
 * Configuration Nginx server and ssl certificates are in folder `/nginx`
 
 * Advanced settings for Django project are in folder `/settings`
@@ -115,7 +114,6 @@ General structure of the project
 
 Build Django project
 --------------------
-
 ### Description for build Django project
 
 > Описание для сборки Django проекта
@@ -152,9 +150,9 @@ The first thing to choose is the path to interpreter Python. If your path to int
 > Первое что нужно выбрать это путь до интерпретатора Python. Если ваш путь до интерпретатора `/usr/bin/python3`, нажмите Enter. Иначе напишите ваш `/path/to/python` и нажмите Enter
 
 ```
-----------------------
+┌────────────────────┐
 | Python interpreter |
-----------------------
+└────────────────────┘
 Default: /usr/bin/python3
 (Сlick Enter for choose default)
 If you wont to change, write: /path/to/python
@@ -165,9 +163,9 @@ The second thing to choose is the name of first Django app. If you want first ap
 > Второе что нужно выбрать это название первого Django приложения. Если вы хотите первое приложение с названием `core`, нажмите Enter. Иначе напишите ваше название `my_app` и нажмите Enter
 
 ```
-------------------
-| First app name |
-------------------
+┌────────────────┐
+│ First app name |
+└────────────────┘
 Default: core
 (Сlick Enter for choose default)
 If you wont to change, write: my_app
@@ -181,50 +179,51 @@ If you wont to change, write: my_app
 
 ```
 .
-├── build.sh
-├── db.sqlite3
-├── django.yml
-├── Dockerfile
-├── LICENSE.md
-├── mysql.yml
 ├── nginx
 │   ├── letsencrypt
 │   │   └── __init__
 │   └── nginx.conf
-├── psql.yml
-├── README.md
-├── requirements.txt
 ├── src
 │   ├── config
-│   │   ├── asgi.py
-│   │   ├── __init__.py
 │   │   ├── settings
-│   │   │   ├── base.py
 │   │   │   ├── __init__.py
+│   │   │   ├── base.py
 │   │   │   ├── local.py
 │   │   │   └── production.py
+│   │   ├── __init__.py
+│   │   ├── asgi.py
 │   │   ├── urls.py
 │   │   └── wsgi.py
 │   ├── core
-│   │   ├── admin.py
-│   │   ├── apps.py
-│   │   ├── __init__.py
 │   │   ├── migrations
 │   │   │   └── __init__.py
+│   │   ├── __init__.py
+│   │   ├── admin.py
+│   │   ├── apps.py
 │   │   ├── models.py
 │   │   ├── tests.py
 │   │   └── views.py
 │   └── manage.py
-└── static
+├── static
+├── .env
+├── .gitignore
+├── Dockerfile
+├── LICENSE
+├── README.md
+├── build.sh
+├── db.sqlite3
+├── django.yml
+├── mysql.yml
+├── psql.yml
+└── requirements.txt
 
-8 directories, 27 files
+8 directories, 29 files
 ```
 
 &nbsp;
 
-Customization the Network
--------------------------
-
+Setup network
+-------------
 ### First, let's find out the parameters and network device on server
 
 > Для начала узнаем параметры и сетевое устройство на сервере
@@ -239,7 +238,7 @@ From the response, you need a parameter `*-network` then the next parameter `log
 
 ***
 
-### Let's start customization, open the file for editing
+### Let's start setup, open file for editing
 
 > Приступаем к настройке, открываем для редактирования файл
 
@@ -276,7 +275,6 @@ sudo reboot
 
 Installing Dependencies
 -----------------------
-
 ### First, let's update the apt packages and then the system
 
 > Для начала обновим apt пакеты и затем систему
@@ -288,7 +286,7 @@ sudo apt upgrade
 
 ***
 
-### Let's download the main packages for python development and for further customization
+### Let's download the main packages for python development and for further setup
 
 > Скачиваем основные пакеты для разработки на python и для дальнейшей настройки
 
@@ -311,7 +309,6 @@ zsh
 
 Working with users
 ------------------
-
 ### Create users with different rights
 
 > Создание пользователей с разными правами
@@ -358,7 +355,6 @@ userdel -f -r <username>
 
 Working and use SSH
 -------------------
-
 ### Add openssh-server to startup 
 
 > Добавим openssh-server в автозагрузку
@@ -393,7 +389,7 @@ ssh-copy-id -i ~/.ssh/<id_rsa> -p <port> <user>@<host>
 
 ***
 
-### Customization ssh config
+### Setup ssh config
 
 > Настрока ssh конфига
 
@@ -482,13 +478,12 @@ ssh <name_connection>
 
 Install and setup OpenVPN
 -------------------------
-
 ### Download shell script for installation OpenVPN
 
 > Cкачаем shell скрипт для установки OpenVPN
 
 I inherit the installation commands from this guide:
-[https://github.com/Nyr/openvpn-install](https://github.com/Nyr/openvpn-install "Customization for install OpenVPN")
+[https://github.com/Nyr/openvpn-install](https://github.com/Nyr/openvpn-install "Setup for install OpenVPN")
 
 > Я наследую команды установки из этого руководства
 
