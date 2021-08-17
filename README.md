@@ -1,62 +1,62 @@
-Setup for debian or ubuntu server. Priority versions for Debian 10.+ and Ubuntu 20.+
-====================================================================================
-
-1. ### [Project structure](#general-structure-of-the-project)
+How to Setup Debian or Ubuntu Server.
+=====================================
+*For Debian 10.+ and Ubuntu 20.+ Versions*
+1. ### [General Structure of the Project](#general-structure-of-the-project)
 
 2. ### [Build Django](#build-django-project)
     * [Description](#description-for-build-django-project)
-    * [Run script](#use-my-script-buildsh)
-    * [Final tree](#final-tree-of-created-project)
+    * [Running Script](#use-my-script-buildsh)
+    * [Final Project Tree](#final-tree-of-created-project)
 
 3. ### [Network](#setup-network)
-    * [Network device](#first-lets-find-out-the-parameters-and-network-device-on-server)
-    * [Edit parameters](#lets-start-setup-open-file-for-editing)
+    * [Network Device](#first-lets-find-out-the-parameters-and-network-device-on-server)
+    * [Edit Parameters](#lets-start-setup-open-file-for-editing)
 
-4. ### [Dependencies](#installing-dependencies)
-    * [Apt update upgrade](#first-lets-update-the-apt-packages-and-then-the-system)
-    * [Install packages](#lets-download-the-main-packages-for-python-development-and-for-further-Sqetup)
-    * [Use oh-my-zsh](#install-and-use-oh-my-zsh)
+4. ### [Relations](#installing-dependencies)
+    * [Apt Update Upgrade](#first-lets-update-the-apt-packages-and-then-the-system)
+    * [Installing Packages](#lets-download-the-main-packages-for-python-development-and-for-further-Sqetup)
+    * [Using oh-my-zsh](#install-and-use-oh-my-zsh)
 
 5. ### [Users](#working-with-users)
-    * [Create users](#create-users-with-different-rights)
-    * [Delete users](#delete-users)
+    * [How to Create New Users](#create-users-with-different-rights)
+    * [How to Delete Existing Users](#delete-users)
 
-6. ### [SSH](#working-and-use-ssh)
-    * [Add to startup](#add-openssh-server-to-startup)
-    * [Check functionality](#checking-functionality-of-the-utility)
-    * [Generate rsa keys](#generate-and-upload-a-pair-of-rsa-keys-to-server)
-    * [Setup ssh](#setup-ssh-config)
-    * [Save and restart](#save-file-etcsshsshd_config-and-restart-ssh)
-    * [Connection](#config-ssh-connections)
+6. ### [Using SSH in a Project](#working-and-use-ssh)
+    * [Adding to Startup](#add-openssh-server-to-startup)
+    * [Checkup Utility Functionality](#checking-functionality-of-the-utility)
+    * [Generating RSA Keys](#generate-and-upload-a-pair-of-rsa-keys-to-server)
+    * [Setup SSH](#setup-ssh-config)
+    * [Save and Restart](#save-file-etcsshsshd_config-and-restart-ssh)
+    * [Connections of SSH](#config-ssh-connections)
 
-7. ### [VPN](#install-and-setup-openvpn)
-    * [Install](#download-shell-script-for-installation-openvpn)
-    * [Add to startup](#start-and-add-to-startup)
-    * [Connect](#connecting-from-local-computer)
+7. ### [Using VPN in a Project](#install-and-setup-openvpn)
+    * [Installing](#download-shell-script-for-installation-openvpn)
+    * [Adding to Startup](#start-and-add-to-startup)
+    * [Connecting](#connecting-from-local-computer)
 
 &nbsp;
 
-General structure of the project
+General Structure of the Project
 --------------------------------
-* Configuration Nginx server and ssl certificates are in folder `/nginx`
+* Configuration of Nginx server and SSL certificates are located in `/nginx` folder 
 
-* Advanced settings for Django project are in folder `/settings`
+* Advanced settings of Django project are located in `/settings` folder 
 
-* Environment variable data are in file `.env`
+* Environment variable data are in `.env` file
 
-* Files and folders preferred for Python development, that are ignored by git service are in file `.gitignore`
+* Python development files and folders ignored by git service are in `.gitignore` file
 
-* Сommands for build image of this project for docker are in file `Dockerfile`
+* Сommands for build image of current project for Docker are in `Dockerfile` file
 
-* Build of project and initial configuration of Django project on *nix systems is in file `build.sh`
+* Project build and initial configuration of Django project on *nix systems* are in `build.sh` file 
 
-* Required instructions for run and configuring main services of project are in file `django.yml`
+* Required instructions for runniing and configuring main services of project are in `django.yml` file
 
-* Required instructions for run and configuring database PostgreSQL are in file `psql.yml`
+* Required instructions for running and configuring PostgreSQL database are in `psql.yml` file
 
-* Required instructions for run and configuring database MySQL are in file `mysql.yml`
+* Required instructions for running and configuring MySQL database are in `mysql.yml` file 
 
-* Required pip packages for run Django project are in file `requirements.txt`
+* Required pip packages for running Django project are in `requirements.txt` file
 
 > Конфигурация сервера nginx и ssl сертификаты находятся в папке `/nginx`
 >
@@ -80,11 +80,11 @@ General structure of the project
 
 ***
 
-### Folder `/nginx`
+### *`/nginx` Folder*
 
-* Certificates, keys and additional files to activate https protocol are in folder `/letsencrypt`
+* Certificates, keys and additional files to activate HTTPS protocol are located in `/letsencrypt` folder
 
-* Configuration data for indicate conditions location project in the WWW are in file `nginx.conf`
+* Configuration data for specifying a project location conditions on the net are in `nginx.conf` file
 
 > Сертификаты, ключи и дополнительные файлы для активации https протокола находятся в папке `/letsencrypt`
 > 
@@ -92,15 +92,15 @@ General structure of the project
 
 ***
 
-### Folder `/settings`
+### *`/settings` Folder*
 
-* Condition for run project in local or production mode is in file `__init__.py`
+* Condition for run project in local or production mode is in `__init__.py` file
 
-* Basic settings for Django project are in file `base.py`
+* Basic settings of Django project are in `base.py` file
 
-* Configuring database connection in local mode is in file `local.py`
+* Settings for connection to database in local mode are in `local.py` file
 
-* Configuring database connection in production mode is in file `production.py`
+* Settings for connection to database in production mode are in `production.py` file
 
 > Условие для запуска проекта в локальном или продакшн режиме находится в файле `__init__.py`
 >
