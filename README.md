@@ -1,6 +1,7 @@
 How to Setup Debian or Ubuntu Server.
 =====================================
-*For Debian 10.+ and Ubuntu 20.+ Versions*
+### *For Debian 10.+ and Ubuntu 20.+ Versions*
+
 1. ### [General Structure of the Project](#general-structure-of-the-project)
 
 2. ### [Build Django](#build-django-project)
@@ -14,7 +15,7 @@ How to Setup Debian or Ubuntu Server.
 
 4. ### [Relations](#installing-dependencies)
     * [Apt Update Upgrade](#first-lets-update-the-apt-packages-and-then-the-system)
-    * [Installing Packages](#lets-download-the-main-packages-for-python-development-and-for-further-Sqetup)
+    * [Installing Packages](#lets-download-the-main-packages-for-python-development-and-for-further-setup)
     * [Using oh-my-zsh](#install-and-use-oh-my-zsh)
 
 5. ### [Users](#working-with-users)
@@ -80,7 +81,7 @@ General Structure of the Project
 
 ***
 
-### *`/nginx` Folder*
+### `/nginx` folder
 
 * Certificates, keys and additional files to activate HTTPS protocol are located in `/letsencrypt` folder
 
@@ -92,7 +93,7 @@ General Structure of the Project
 
 ***
 
-### *`/settings` Folder*
+### `/settings` folder
 
 * Condition for run project in local or production mode is in `__init__.py` file
 
