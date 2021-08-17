@@ -2,7 +2,7 @@ How to Setup Debian or Ubuntu Server.
 =====================================
 ### *For Debian 10.+ and Ubuntu 20.+ Versions*
 
-1. ### [General Structure of the Project](#general-structure-of-the-project)
+1. ### [General Structure](#general-structure-of-the-project)
 
 2. ### [Build Django](#build-django-project)
     * [Description](#description-for-build-django-project)
@@ -13,7 +13,7 @@ How to Setup Debian or Ubuntu Server.
     * [Network Device](#first-lets-find-out-the-parameters-and-network-device-on-server)
     * [Edit Parameters](#lets-start-setup-open-file-for-editing)
 
-4. ### [Relations](#installing-dependencies)
+4. ### [Dependencies](#installing-dependencies)
     * [Apt Update Upgrade](#first-lets-update-the-apt-packages-and-then-the-system)
     * [Installing Packages](#lets-download-the-main-packages-for-python-development-and-for-further-setup)
     * [Using oh-my-zsh](#install-and-use-oh-my-zsh)
@@ -22,7 +22,7 @@ How to Setup Debian or Ubuntu Server.
     * [How to Create New Users](#create-users-with-different-rights)
     * [How to Delete Existing Users](#delete-users)
 
-6. ### [Using SSH in a Project](#working-and-use-ssh)
+6. ### [Using SSH](#working-and-use-ssh)
     * [Adding to Startup](#add-openssh-server-to-startup)
     * [Checkup Utility Functionality](#checking-functionality-of-the-utility)
     * [Generating RSA Keys](#generate-and-upload-a-pair-of-rsa-keys-to-server)
@@ -30,7 +30,7 @@ How to Setup Debian or Ubuntu Server.
     * [Save and Restart](#save-file-etcsshsshd_config-and-restart-ssh)
     * [Connections of SSH](#config-ssh-connections)
 
-7. ### [Using VPN in a Project](#install-and-setup-openvpn)
+7. ### [Using VPN](#install-and-setup-openvpn)
     * [Installing](#download-shell-script-for-installation-openvpn)
     * [Adding to Startup](#start-and-add-to-startup)
     * [Connecting](#connecting-from-local-computer)
@@ -89,7 +89,7 @@ General Structure of the Project
 
 > Сертификаты, ключи и дополнительные файлы для активации https протокола находятся в папке `/letsencrypt`
 > 
-> Конфигурационные данные для указания условий размещения проекта в WWW находятся в файле `nginx.conf`
+> Конфигурационные данные для указания условий размещения проекта в сети находятся в файле `nginx.conf`
 
 ***
 
