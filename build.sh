@@ -31,6 +31,7 @@ mv config/ src/ && cd src/
 
 rm config/settings.py
 mv ../settings/ config/
+mv ../packs/ .
 
 
 if [ -z "$first_app_name" ]; then
