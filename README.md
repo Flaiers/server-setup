@@ -521,13 +521,13 @@ I have OS Linux/Ubuntu and will demonstrate on it
 
 > Я имею операционную систему Linux/Ubuntu и буду демонстрировать на ней
 
-![VPN](https://fla.codes/static/img/vpn.png)
+![VPN](https://fla.codes/media/vpn.png)
 
 Сlick: Import from file... And choose your file `<client>.ovpn`. As a result, you will receive a complete setting for adding VPN. Now click Add
 
 > Нажмите: Импортировать из файла... И выбирите ваш файл `<client>.ovpn`. ПО итогу вы получите полную настройку для добавления VPN. Теперь нажмите: Добавить
 
-![Add VPN](https://fla.codes/static/img/add-vpn.png)
+![Add VPN](https://fla.codes/media/add-vpn.png)
 
 Successfully!
 
