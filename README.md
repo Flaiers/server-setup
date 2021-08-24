@@ -125,7 +125,7 @@ To build and raise project you need to:
 
 2. To raise project in production mode, you need to select a database, example is PostgreSQL and MySQL. Docker compose files is in repository. You need to move the content in `services` to main file with instructions (`django.yml`) required to run and configure the services
 
-3. Configure `.env` file, variables — PROJECT_NAME, IMAGE_NAME, NGINX_NAME, change SECRET_KEY to your, setup DEBUG and LEVEL, indicate data for database and HOST
+3. Configure `.env` file, variables — PROJECT_NAME, IMAGE_NAME, NGINX_NAME, change SECRET_KEY to your, setup DEBUG, indicate data for external database and HOST, and also LEVEL=PRODUCTION
 
 4. If you are using a non-local database comment out line 27, 28 in `django.yml` file. Rum main file with instructions with command:
 
@@ -139,7 +139,7 @@ docker-compose -f django.yml up
 >
 > 2. Для поднятия проекта в продакшн режиме вам нужно выбрать базу данных, в пример приведены PostgreSQL и MySQL. Docker compose файлы есть в репозитории. Нужно содержимое в `services` переместить в главный файл с инструкциями (`django.yml`) необходимыми для запуска и настройки сервисов
 >
-> 3. Настройте `.env` файл, переменные — PROJECT_NAME, IMAGE_NAME, NGINX_NAME, измените SECRET_KEY на ваш, установите DEBUG и LEVEL, укажите данные для БД и HOST
+> 3. Настройте `.env` файл, переменные — PROJECT_NAME, IMAGE_NAME, NGINX_NAME, измените SECRET_KEY на ваш, установите DEBUG, укажите данные для внешней БД и HOST, а также LEVEL=PRODUCTION
 >
 > 4. Если вы используете не локальную БД раскоментируйте 27, 28 строку в файле `django.yml`. Запустите главный файл с инструкциями командой:
 >
