@@ -12,6 +12,7 @@ services:
       - web
     volumes:
       - ./static:/usr/projects/${PROJECT_NAME}/static
+      - ./media:/usr/projects/${PROJECT_NAME}/media
       # - ./nginx/letsencrypt:/etc/letsencrypt
       - ./nginx:/etc/nginx/conf.d
 
