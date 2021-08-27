@@ -27,19 +27,18 @@ source env/bin/activate
 pip install -U pip && pip install -r requirements.txt
 
 django-admin startproject config
-mv config/ src/ && cd src/
+mv config/ src/
 
-rm config/settings.py
-mv ../settings/ config/
-mv ../packs/ .
-
+rm src/config/settings.py
+mv settings/ src/config/
+mv packs/ src/
 
 if [ -z "$first_app_name" ]; then
-    python manage.py startapp core
+    python src/manage.py startapp core
 else
-    `python manage.py startapp $first_app_name`
+    `python src/manage.py startapp $first_app_name`
 fi
 
-python manage.py collectstatic
-python manage.py migrate
-python manage.py runserver --insecure
+python src/manage.py collectstatic
+python src/manage.py migrate
+python src/manage.py runserver --insecure
