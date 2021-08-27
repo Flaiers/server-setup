@@ -31,14 +31,14 @@ mv config/ src/
 
 rm src/config/settings.py
 mv settings/ src/config/
-mv packs/ src/
+mv packs/ src/ && cd src/
 
 if [ -z "$first_app_name" ]; then
-    python src/manage.py startapp core
+    python manage.py startapp core
 else
-    `python src/manage.py startapp $first_app_name`
+    `python manage.py startapp $first_app_name`
 fi
 
-python src/manage.py collectstatic
-python src/manage.py migrate
-python src/manage.py runserver --insecure
+python manage.py collectstatic
+python manage.py migrate
+python manage.py runserver --insecure
