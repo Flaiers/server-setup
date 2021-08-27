@@ -1,14 +1,14 @@
 import os
-import environ
 
+from dotenv import load_dotenv
 from packs.types import bool
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = environ.Path(__file__) - 4
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
 
 # reading .env file
-environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+load_dotenv()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
