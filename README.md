@@ -16,6 +16,7 @@ How to Setup Debian or Ubuntu Server.
 4. ### [Dependencies](#installing-dependencies)
     * [Apt Update Upgrade](#first-lets-update-the-apt-packages-and-then-the-system)
     * [Installing Packages](#lets-download-the-main-packages-for-python-development-and-for-further-setup)
+    * [Pro installation Python](#pro-installation-python)
     * [Using oh-my-zsh](#install-and-use-oh-my-zsh)
 
 5. ### [Users](#working-with-users)
@@ -29,6 +30,7 @@ How to Setup Debian or Ubuntu Server.
     * [Setup SSH](#setup-ssh-config)
     * [Save and Restart](#save-file-etcsshsshd_config-and-restart-ssh)
     * [Connections of SSH](#config-ssh-connections)
+    * [Load files](#load-files-by-ssh)
 
 7. ### [Using VPN](#install-and-setup-openvpn)
     * [Installing](#download-shell-script-for-installation-openvpn)
@@ -311,6 +313,53 @@ sudo apt install -y openssh-server vim zsh mosh htop git curl wget unzip zip mak
 
 ***
 
+### Pro installation Python
+
+> Установка Python
+
+1. Download Python package from [python.org](https://python.org/download/ "Download Python")
+
+2. Unpacking archive, change x.x.x to your values
+
+```bash
+tar -xvf Python-x.x.x.tar.xz
+cd Python-x.x.x
+```
+
+3. Configure to `~/.python`
+
+```bash
+mkdir ~/.python
+./configure --enable-optimizations --prefix=~/.python
+```
+
+4. Install and check pip
+
+```bash
+make -j 4
+sudo make altinstall
+sudo ~/.python/bin/python3.x -m pip install -U pip
+```
+
+5. Default Python installation
+
+```bash
+sudo update-alternatives --install /usr/bin/python python ~/.python/bin/python3.x 10
+sudo update-alternatives --config python
+```
+
+> 1. Скачивание Python пакета с [python.org](https://python.org/download/ "Download Python")
+>
+> 2. Распаковка архива, измените x.x.x на ваши значения
+>
+> 3. Конфигурация в `~/.python`
+>
+> 4. Установка и проверка pip
+>
+> 5. Установка Python по умолчанию
+
+***
+
 ### Install and use oh-my-zsh
 
 > Установка и использование конфига oh-my-zsh
@@ -488,6 +537,36 @@ Save file `~/.ssh/config` and connect
 ```bash
 ssh <name_connection>
 ```
+
+***
+
+### Load files by SSH
+
+> Загрузка файлов по SSH
+
+Upload file
+```bash
+scp <path-to-file> -P <port> <user>@<host>:<path-to-place>
+```
+
+Upload directory
+```bash
+scp -r <path-to-directory> -P <port> <user>@<host>:<path-to-place>
+```
+
+Download file
+```bash
+scp -P <port> <user>@<host>:<path-to-file> <path-to-place>
+```
+
+Download directory
+```bash
+scp -r -P <port> <user>@<host>:<path-to-directory> <path-to-place>
+```
+
+If you want to copy all files from directory use <path-to-directory>/*
+
+> Если вы хотите скопировать все файлы из дериктроии, используйте <path-to-directory>/*
 
 &nbsp;
 
