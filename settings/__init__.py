@@ -1,6 +1,6 @@
 from .base import *
 
-if os.environ.get("LEVEL") == "PRODUCTION":
+if os.getenv("LEVEL") == "PRODUCTION":
     print('RUN PRODUCTION MODE')
     from .production import *
 

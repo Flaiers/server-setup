@@ -14,12 +14,12 @@ load_dotenv()
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(os.environ.get('DEBUG'))
+DEBUG = bool(os.getenv('DEBUG'))
 
-ALLOWED_HOSTS = list(os.environ.get('ALLOWED_HOSTS'))
+ALLOWED_HOSTS = list(os.getenv('ALLOWED_HOSTS'))
 
 
 # Application definition
@@ -85,15 +85,15 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = os.environ.get('LANGUAGE_CODE')
+LANGUAGE_CODE = os.getenv('LANGUAGE_CODE')
 
-TIME_ZONE = os.environ.get('TIME_ZONE')
+TIME_ZONE = os.getenv('TIME_ZONE')
 
-USE_I18N = bool(os.environ.get('USE_I18N'))
+USE_I18N = bool(os.getenv('USE_I18N'))
 
-USE_L10N = bool(os.environ.get('USE_L10N'))
+USE_L10N = bool(os.getenv('USE_L10N'))
 
-USE_TZ = bool(os.environ.get('USE_TZ'))
+USE_TZ = bool(os.getenv('USE_TZ'))
 
 
 # Static files (CSS, JavaScript, Images)
