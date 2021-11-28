@@ -1,6 +1,6 @@
-How to Setup Debian or Ubuntu Server.
-=====================================
-### *For Debian 10.+ and Ubuntu 20.+ Versions*
+All about setup Debian and Ubuntu server
+========================================
+### *Note: for Debian 10.+ and Ubuntu 20.+ versions*
 
 1. ### [General Structure](#general-structure-of-the-project)
 
