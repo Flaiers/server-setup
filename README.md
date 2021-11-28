@@ -2,11 +2,7 @@ All about setup Debian and Ubuntu server
 ========================================
 ### *Note: for Debian 10.+ and Ubuntu 20.+ versions*
 
-1. ### [Users](#working-with-users)
-    * [How to Create New Users](#create-users-with-different-rights)
-    * [How to Delete Existing Users](#delete-users)
-
-2. ### [Using SSH](#working-and-use-ssh)
+1. ### [Using SSH](#working-and-use-ssh)
     * [Adding to Startup](#add-openssh-server-to-startup)
     * [Checkup Utility Functionality](#checking-functionality-of-the-utility)
     * [Generating RSA Keys](#generate-and-upload-a-pair-of-rsa-keys-to-server)
@@ -15,56 +11,10 @@ All about setup Debian and Ubuntu server
     * [Connections of SSH](#config-ssh-connections)
     * [Load files](#load-files-by-ssh)
 
-3. ### [Using VPN](#install-and-setup-openvpn)
+2. ### [Using VPN](#install-and-setup-openvpn)
     * [Installing](#download-shell-script-for-installation-openvpn)
     * [Adding to Startup](#start-and-add-to-startup)
     * [Connecting](#connecting-from-local-computer)
-
-&nbsp;
-
-Working with users
-------------------
-### Create users with different rights
-
-> Создание пользователей с разными правами
-
-Create standard user without rights
-
-> Создание обычного пользователя без прав
-
-```bash
-sudo useradd -m -G sudo,wheel -s /bin/bash -p <password> <username>
-```
-
-Create user with group and rights root
-
-> Создание пользователя с группой и правами root
-
-```bash
-sudo useradd -m -o -u 0 -g 0 -s /bin/bash -p <password> <username>
-```
-
-To see the settings of the rights of groups and users
-
-> Посмотреть настройки прав групп и пользователей
-
-```bash
-sudo nano /etc/sudoers
-```
-
-***
-
-### Delete users
-
-> Удаление пользователей
-
-Flags: -f (--force) for forced deletion, -r (--remove) for remove home directory
-
-> Флаги: -f для принудительного удаления, -r для удаления домашней дериктории
-
-```bash
-userdel -f -r <username>
-```
 
 &nbsp;
 
