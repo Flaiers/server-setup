@@ -3,19 +3,19 @@
 
 ### Создание
 
-> Обычный пользователь с правами sudo.
+> Создает обычного пользователья с правами sudo.
 ```shell
 sudo useradd -m -G sudo -s /usr/bin/zsh -p <password> <username>
 ```
 
-> Пользователь с группой sudo и правами root.
+> Создает пользователя с группой sudo и правами root.
 ```shell
 sudo useradd -m -o -u 0 -g 0 -s /usr/bin/zsh -p <password> <username>
 ```
 
 ### Права
 
-> Настройка sudo без пароля.
+> Открывает, настраивает sudo без пароля.
 ```shell
 sudo visudo
 ```
@@ -27,7 +27,7 @@ sudo visudo
 
 ### Удаление
 
-> Принудительное удаление вместе с домашней директорией.
+> Принудительно удаляет пользователя с домашней директорией.
 ```shell
 sudo userdel -f -r <username>
 ```
