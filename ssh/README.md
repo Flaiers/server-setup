@@ -15,25 +15,13 @@ sudo systemctl enable ssh
 ssh localhost
 ```
 
-> Генерирует RSA ключи, публичный и приватный.
-
-```shell
-ssh-keygen -t rsa
-```
-
-> Добавляет локально сгенерированный ключ в authorized_keys на сервере.
-
-```shell
-ssh-copy-id -i $HOME/.ssh/id_rsa <username>@example.com
-```
-
-> Копирует стандартный sshd_config.
+> Копирует стандартный конфиг в `sshd_config.default`.
 
 ```shell
 sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.default
 ```
 
-> Открывает, настраивает sshd_config.
+> Открывает, настраивает `sshd_config`.
 
 ```shell
 sudo nano /etc/ssh/sshd_config
@@ -66,10 +54,46 @@ PasswordAuthentication no
 ChallengeResponseAuthentication no
 ```
 
-> Перезагружает сервис OpenSSH
+> Перезагружает сервис OpenSSH.
 
 ```shell
 sudo systemctl restart ssh
+```
+
+---
+
+## Создание ключей и папки `.ssh`
+
+> Создает папку `.ssh`.
+
+```shell
+mkdir $HOME/.ssh
+```
+
+> Выдает права на папку `.ssh`.
+
+```shell
+chown -R $USER:$USER $HOME/.ssh/; \
+chmod -R 700 $HOME/.ssh/
+```
+
+> Генерирует RSA ключи, публичный и приватный.
+
+```shell
+ssh-keygen -t rsa
+```
+
+> Добавляет локально сгенерированный ключ в `authorized_keys` на сервере.
+
+```shell
+ssh-copy-id -i $HOME/.ssh/id_rsa <username>@example.com
+```
+
+> Выдает права файлам в папке `.ssh`.
+
+```shell
+chmod 644 $HOME/.ssh/*; \
+chmod 600 $HOME/.ssh/id_rsa $HOME/.ssh/id_rsa.pub $HOME/.ssh/authorized_keys
 ```
 
 ---
