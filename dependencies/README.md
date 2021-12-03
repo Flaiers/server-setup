@@ -77,3 +77,18 @@ ZSH_THEME="agnoster"
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 ```
+
+> Ссылка на установщик OpenVPN.
+
+#### [https://github.com/Nyr/openvpn-install](https://github.com/Nyr/openvpn-install "OpenVPN")
+
+> Запускает и добавляет OpenVPN в автозагрузку.
+
+```shell
+sudo systemctl start openvpn; \
+sudo systemctl enable openvpn
+```
+
+> Ссылка на установщик WireGuard.
+
+#### [https://github.com/Nyr/wireguard-install](https://github.com/Nyr/wireguard-install "WireGuard")
