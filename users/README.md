@@ -6,7 +6,7 @@
 > Создает обычного пользователья с правами sudo.
 
 ```shell
-sudo useradd -m -G sudo -s /usr/bin/zsh -p <password> <username>
+sudo useradd -m -G sudo,docker -s /usr/bin/zsh -p <password> <username>
 ```
 
 > Создает пользователя с группой sudo и правами root.

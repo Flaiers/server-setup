@@ -12,7 +12,7 @@ sudo apt-get update && sudo apt-get upgrade
 > Скачивает нужные пакеты для разработки на python и для дальнейшей настройки сервера.
 
 ```shell
-sudo apt-get install -y openssh-server nginx vim zsh fonts-powerline mosh htop git curl wget unzip zip make python3-dev python3-lxml python3 build-essential libssl-dev libffi-dev python3-pip python3-venv tk-dev libncurses5-dev libncursesw5-dev libreadline6-dev libdb5.3-dev libgdbm-dev libbz2-dev libexpat1-dev libpcre3 libpcre3-dev liblzma-dev zlib1g zlib1g-dev
+sudo apt-get install -y openssh-server nginx vim zsh fonts-powerline mosh htop git curl wget unzip zip make python3-dev python3-lxml python3 build-essential libssl-dev libffi-dev python3-pip python3-venv tk-dev libncurses5-dev libncursesw5-dev libreadline6-dev libdb5.3-dev libgdbm-dev libbz2-dev libexpat1-dev libpcre3 libpcre3-dev liblzma-dev zlib1g zlib1g-dev apt-transport-https ca-certificates software-properties-common
 ```
 
 ---
@@ -45,6 +45,83 @@ make && sudo make altinstall
 sudo update-alternatives --install /usr/bin/python python $HOME/.python/bin/python3.10 10 && \
 sudo update-alternatives --config python && \
 python -m pip install -U pip
+```
+
+---
+
+### Docker
+
+> Добавляет gpg ключ для официального репозитория Docker в систему.
+
+```shell
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+```
+
+> Добавляет репозиторий Docker в источники apt.
+
+```shell
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+```
+
+> Обновляет индекс пакетов.
+
+```shell
+sudo apt-get update
+```
+
+> Проверяет, что установка будет выполняться из репозитория Docker, а не из репозитория Ubuntu.
+
+```shell
+apt-cache policy docker-ce
+```
+
+```shell
+docker-ce:
+  Installed: (none)
+  Candidate: 5:20.10.12~3-0~ubuntu-focal
+  Version table:
+     5:20.10.12~3-0~ubuntu-focal 500
+        500 https://download.docker.com/linux/ubuntu focal/stable amd64 Packages
+```
+
+> Устанавливает Docker.
+
+```shell
+sudo apt-get install docker-ce
+```
+
+> Показывает текущую версию Docker.
+
+```shell
+docker --version
+```
+
+> Включает docker в автозагрузку.
+
+```shell
+sudo systemctl enable docker
+```
+
+---
+
+### Docker Compose
+
+> Загружает версию `2.2.2` и сохраняет исполняемый файл в каталоге `/usr/local/bin/docker-compose`, в результате чего данное программное обеспечение будет глобально доступно под именем docker-compose.
+
+```shell
+sudo curl -L "https://github.com/docker/compose/releases/download/v2.2.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+```
+
+> Задает правильные разрешения, чтобы сделать команду docker-compose исполняемой.
+
+```shell
+sudo chmod +x /usr/local/bin/docker-compose
+```
+
+> Показывает текущую версию Docker Compose.
+
+```shell
+docker-compose --version
 ```
 
 ---
