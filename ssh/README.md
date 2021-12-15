@@ -108,10 +108,10 @@ sudo nano $HOME/.ssh/config
 
 ```shell
 Host example
-Hostname example.com
-User <username>
-PubKeyAuthentication yes
-Port 2222
+    Hostname example.com
+    User <username>
+    PubKeyAuthentication yes
+    Port 2222
 ```
 
 > Подключает к серверу.
