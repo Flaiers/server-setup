@@ -73,7 +73,7 @@ mkdir $HOME/.ssh
 > Выдает права на папку `.ssh`.
 
 ```shell
-chown -R $USER:$USER $HOME/.ssh/; \
+chown -R $USER:$USER $HOME/.ssh/ & \
 chmod -R 700 $HOME/.ssh/
 ```
 
@@ -92,7 +92,7 @@ ssh-copy-id -i $HOME/.ssh/id_rsa <username>@example.com
 > Выдает права файлам в папке `.ssh`.
 
 ```shell
-chmod 644 $HOME/.ssh/*; \
+chmod 644 $HOME/.ssh/* & \
 chmod 600 $HOME/.ssh/id_rsa $HOME/.ssh/id_rsa.pub $HOME/.ssh/authorized_keys
 ```
 
