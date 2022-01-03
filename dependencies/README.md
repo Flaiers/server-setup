@@ -154,17 +154,25 @@ ZSH_THEME="agnoster"
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 ```
 
-> Ссылка на установщик OpenVPN.
+> Устанавливает OpenVPN.
 
-#### [https://github.com/Nyr/openvpn-install](https://github.com/Nyr/openvpn-install "OpenVPN")
+```shell
+wget https://git.io/vpn -O openvpn-install.sh && shell openvpn-install.sh
+```
+
+_Источник: [https://github.com/Nyr/openvpn-install](https://github.com/Nyr/openvpn-install "OpenVPN")_
 
 > Запускает и добавляет OpenVPN в автозагрузку.
 
 ```shell
-sudo systemctl start openvpn; \
+sudo systemctl start openvpn & \
 sudo systemctl enable openvpn
 ```
 
-> Ссылка на установщик WireGuard.
+> Устанавливает WireGuard.
 
-#### [https://github.com/Nyr/wireguard-install](https://github.com/Nyr/wireguard-install "WireGuard")
+```shell
+wget https://git.io/wireguard -O wireguard-install.sh && shell wireguard-install.sh
+```
+
+_Источник: [https://github.com/Nyr/wireguard-install](https://github.com/Nyr/wireguard-install "WireGuard")_
