@@ -12,7 +12,7 @@ sudo apt-get update && sudo apt-get upgrade
 > Скачивает нужные пакеты для разработки на python и для дальнейшей настройки сервера.
 
 ```shell
-sudo apt-get install -y openssh-server vim zsh fonts-powerline mosh htop git curl wget unzip zip make python3-dev python3-lxml python3 build-essential libssl-dev libffi-dev python3-pip python3-venv tk-dev libncurses5-dev libncursesw5-dev libreadline6-dev libdb5.3-dev libgdbm-dev libbz2-dev libexpat1-dev libpcre3 libpcre3-dev liblzma-dev zlib1g zlib1g-dev apt-transport-https ca-certificates software-properties-common
+sudo apt-get install -y openssh-server vim zsh fonts-powerline mosh htop git curl wget unzip zip make python3-dev python3-lxml python3 build-essential libssl-dev libffi-dev python3-pip python3-venv tk-dev libncurses5-dev libncursesw5-dev libreadline6-dev libdb5.3-dev libgdbm-dev libbz2-dev libexpat1-dev libpcre3  libpcre3-dev liblzma-dev zlib1g zlib1g-dev apt-transport-https ca-certificates software-properties-common libsqlite3-dev
 ```
 
 ---
@@ -30,7 +30,7 @@ tar -xvf Python-3.10.0.tar.xz
 
 ```shell
 cd Python-3.10.0 && mkdir $HOME/.python && \
-./configure --enable-optimizations --prefix=$HOME/.python
+./configure --enable-loadable-sqlite-extensions --enable-optimizations --prefix=$HOME/.python
 ```
 
 > Устанавливает python.
