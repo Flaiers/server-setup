@@ -157,7 +157,7 @@ ZSH_THEME="agnoster"
 > Устанавливает OpenVPN.
 
 ```shell
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/Nyr/openvpn-install/master/openvpn-install.sh)"
+sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/Nyr/openvpn-install/master/openvpn-install.sh)"
 ```
 
 _Источник: [https://github.com/Nyr/openvpn-install](https://github.com/Nyr/openvpn-install "OpenVPN")_
@@ -172,7 +172,7 @@ sudo systemctl enable openvpn
 > Устанавливает WireGuard.
 
 ```shell
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/Nyr/wireguard-install/master/wireguard-install.sh)"
+sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/Nyr/wireguard-install/master/wireguard-install.sh)"
 ```
 
 _Источник: [https://github.com/Nyr/wireguard-install](https://github.com/Nyr/wireguard-install "WireGuard")_
