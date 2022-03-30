@@ -22,14 +22,14 @@ sudo apt-get install -y openssh-server vim zsh fonts-powerline mosh htop git cur
 > Скачивает и распаковывает архив.
 
 ```shell
-curl -fOsSL https://www.python.org/ftp/python/3.10.0/Python-3.10.0.tar.xz && \
-tar -xvf Python-3.10.0.tar.xz
+curl -fOsSL https://www.python.org/ftp/python/3.10.4/Python-3.10.4.tar.xz && \
+tar -xvf Python-3.10.4.tar.xz
 ```
 
 > Создает папку `.python` в домашней директории пользователя и конфигурирует в нее python.
 
 ```shell
-cd Python-3.10.0 && mkdir $HOME/.python && \
+cd Python-3.10.4 && mkdir $HOME/.python && \
 ./configure --enable-loadable-sqlite-extensions --enable-optimizations --prefix=$HOME/.python
 ```
 
@@ -106,10 +106,10 @@ sudo systemctl enable docker
 
 ### Docker Compose
 
-> Загружает версию `2.2.2` и сохраняет исполняемый файл в каталоге `/usr/local/bin/docker-compose`, в результате чего данное программное обеспечение будет глобально доступно под именем docker-compose.
+> Загружает версию `2.3.0` и сохраняет исполняемый файл в каталоге `/usr/local/bin/docker-compose`, в результате чего данное программное обеспечение будет глобально доступно под именем docker-compose.
 
 ```shell
-sudo curl -L "https://github.com/docker/compose/releases/download/v2.2.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo curl -L "https://github.com/docker/compose/releases/download/v2.3.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 ```
 
 > Задает правильные разрешения, чтобы сделать команду docker-compose исполняемой.
@@ -157,7 +157,7 @@ ZSH_THEME="agnoster"
 > Устанавливает OpenVPN.
 
 ```shell
-wget https://git.io/vpn -O openvpn-install.sh && bash openvpn-install.sh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/Nyr/openvpn-install/master/openvpn-install.sh)"
 ```
 
 _Источник: [https://github.com/Nyr/openvpn-install](https://github.com/Nyr/openvpn-install "OpenVPN")_
@@ -172,7 +172,7 @@ sudo systemctl enable openvpn
 > Устанавливает WireGuard.
 
 ```shell
-wget https://git.io/wireguard -O wireguard-install.sh && bash wireguard-install.sh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/Nyr/wireguard-install/master/wireguard-install.sh)"
 ```
 
 _Источник: [https://github.com/Nyr/wireguard-install](https://github.com/Nyr/wireguard-install "WireGuard")_
