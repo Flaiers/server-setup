@@ -22,14 +22,14 @@ sudo apt-get install -y openssh-server vim zsh fonts-powerline mosh htop git cur
 > Скачивает и распаковывает архив.
 
 ```shell
-curl -fOsSL https://www.python.org/ftp/python/3.10.4/Python-3.10.4.tar.xz && \
-tar -xvf Python-3.10.4.tar.xz
+curl -fOsSL https://www.python.org/ftp/python/3.11.0/Python-3.11.0.tar.xz && \
+tar -xvf Python-3.11.0.tar.xz
 ```
 
 > Создает папку `.python` в домашней директории пользователя и конфигурирует в нее python.
 
 ```shell
-cd Python-3.10.4 && mkdir $HOME/.python && \
+cd Python-3.11.0 && mkdir $HOME/.python && \
 ./configure --enable-loadable-sqlite-extensions --enable-optimizations --prefix=$HOME/.python
 ```
 
@@ -42,7 +42,7 @@ make && sudo make altinstall
 > Обновляет ссылку на установленный python и скачивает пакеты pip.
 
 ```shell
-sudo update-alternatives --install /usr/bin/python python $HOME/.python/bin/python3.10 10 && \
+sudo update-alternatives --install /usr/bin/python python $HOME/.python/bin/python3.11 10 && \
 sudo update-alternatives --config python && \
 python -m pip install -U pip
 ```
